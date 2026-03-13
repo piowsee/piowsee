@@ -15,22 +15,39 @@ export function ContactSection() {
     whatsapp: "",
     description: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Construct email body
-    const subject = encodeURIComponent(`Project Consultation: ${formData.name}`);
-    const body = encodeURIComponent(
-      `Full Name: ${formData.name}\n` +
-      `Email: ${formData.email}\n` +
-      `WhatsApp Number: ${formData.whatsapp}\n` +
-      `Project Description: ${formData.description}\n\n`
-    );
+    setIsSubmitting(true);
+    setStatus("idle");
 
-    // Open default mail client
-    window.location.href = `mailto:hello@piowsee.com?subject=${subject}&body=${body}`;
-    setIsModalOpen(false);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", whatsapp: "", description: "" });
+        setTimeout(() => {
+          setIsModalOpen(false);
+          setStatus("idle");
+        }, 2000);
+      } else {
+        setStatus("error");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setStatus("error");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -144,14 +161,39 @@ export function ContactSection() {
               />
             </div>
 
+            {/* Status Messages */}
+            {status === "success" && (
+              <p className="text-sm font-medium text-emerald-600 text-center animate-in fade-in slide-in-from-top-1">
+                Thank you! Your inquiry has been sent successfully.
+              </p>
+            )}
+            {status === "error" && (
+              <p className="text-sm font-medium text-red-600 text-center animate-in fade-in slide-in-from-top-1">
+                Something went wrong. Please try again or contact us directly.
+              </p>
+            )}
+
             {/* Submit */}
             <div className="pt-4">
               <Button 
                 type="submit"
-                className="w-full bg-[#10b981] hover:bg-[#059669] text-white rounded-lg py-6 text-lg font-bold shadow-md hover:shadow-lg transition-all cursor-pointer"
+                disabled={isSubmitting || status === "success"}
+                className="w-full bg-[#10b981] hover:bg-[#059669] text-white rounded-lg py-6 text-lg font-bold shadow-md hover:shadow-lg transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <MessageSquare className="w-5 h-5 mr-3 opacity-90" />
-                Get Free Consultation Now!
+                {isSubmitting ? (
+                  <span className="flex items-center gap-2">
+                    <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Sending...
+                  </span>
+                ) : (
+                  <span className="flex items-center gap-2">
+                    <MessageSquare className="w-5 h-5 mr-1 opacity-90" />
+                    Get Free Consultation Now!
+                  </span>
+                )}
               </Button>
             </div>
           </form>
