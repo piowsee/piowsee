@@ -8,8 +8,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Gojek Singapore",
-  description: "More ways to go with Gojek",
+  title: "piowsee | Automating Complexity",
+  description: "piowsee is a software house building intelligent digital products and solutions.",
 };
 
 export default function RootLayout({
