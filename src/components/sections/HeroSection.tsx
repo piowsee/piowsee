@@ -1,16 +1,36 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 
 export function HeroSection() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.9;
+    }
+  }, []);
+
   return (
     <section id="home" className="relative h-screen min-h-[600px] w-full flex items-center justify-center overflow-hidden">
-      {/* Background Image / Video */}
+      {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/40 z-10" /> {/* Dark overlay for text contrast */}
-        <img
-          src="https://69b41f2ad7351016cf20d705.imgix.net/%22A-photorealistic,-highly-detailed-1920x1080-image-of-a-modern-software-engineering-setup.-The-entire-left-two-thirds-of-the-image-is-a-smooth,-continuous-background-in-a-rich-teal-color-("
-          alt="piowsee hero"
-          className="w-full h-full object-cover"
-        />
+        <div className="absolute inset-0 bg-black/75 z-10" /> {/* Dark overlay for text contrast */}
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover scale-x-[-1]"
+        >
+          <source 
+            src="video.mp4" 
+            type="video/mp4" 
+          />
+          Your browser does not support the video tag.
+        </video>
       </div>
 
       {/* Content Container */}
