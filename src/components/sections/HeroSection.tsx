@@ -7,7 +7,7 @@ export function HeroSection() {
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black/40 z-10" /> {/* Dark overlay for text contrast */}
         <img
-          src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070&auto=format&fit=crop"
+          src="https://69b41f2ad7351016cf20d705.imgix.net/%22A-photorealistic,-highly-detailed-1920x1080-image-of-a-modern-software-engineering-setup.-The-entire-left-two-thirds-of-the-image-is-a-smooth,-continuous-background-in-a-rich-teal-color-("
           alt="piowsee hero"
           className="w-full h-full object-cover"
         />
@@ -28,12 +28,12 @@ export function HeroSection() {
           
           <div className="pt-4 flex gap-4 flex-wrap">
             <Button
-              className="rounded-full bg-white text-black hover:bg-gray-100 hover:text-black font-bold px-8 py-6 text-lg transition-transform hover:scale-105"
+              className="cursor-pointer rounded-full bg-white text-black hover:text-black font-bold px-8 py-6 text-lg transition-transform"
             >
               Explore Our Platform
             </Button>
             <Button
-              className="rounded-full bg-transparent border-2 border-white text-white hover:bg-white hover:text-black font-bold px-8 py-6 text-lg transition-all"
+              className="cursor-pointer rounded-full bg-transparent border-2 border-white text-white font-bold px-8 py-6 text-lg transition-all"
             >
               Consult With Our Engineers
             </Button>

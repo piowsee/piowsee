@@ -75,10 +75,10 @@ export function Header() {
         {/* Right side CTA Desktop */}
         <div className="hidden lg:flex flex-shrink-0">
           <Button
-            className={`rounded-full px-6 py-5 font-bold border-2 transition-all ${
+            className={`cursor-pointer rounded-full px-6 py-5 font-bold border-2 transition-all ${
               isScrolled
                 ? "border-brand text-brand bg-transparent hover:bg-brand hover:text-white"
-                : "border-white text-white bg-transparent hover:bg-white hover:text-black"
+                : "border-white text-black bg-white"
             }`}
             variant="outline"
           >
