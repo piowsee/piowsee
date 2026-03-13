@@ -1,8 +1,8 @@
 import { Header } from "@/components/sections/Header";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
-import { HowToUseSection } from "@/components/sections/HowToUseSection";
-import { PromoSection } from "@/components/sections/PromoSection";
+import { PlatformSection } from "@/components/sections/PlatformSection";
+import { ProcessSection } from "@/components/sections/ProcessSection";
 import { Footer } from "@/components/sections/Footer";
 
 export default function Home() {
@@ -11,8 +11,8 @@ export default function Home() {
       <Header />
       <HeroSection />
       <ServicesSection />
-      <HowToUseSection />
-      <PromoSection />
+      <PlatformSection />
+      <ProcessSection />
       <Footer />
     </main>
   );
