@@ -175,10 +175,10 @@ export function ContactSection() {
 
   return (
     <section id="contact" className="py-20 bg-zinc-50 overflow-hidden">
-      <div className="container mx-auto px-4 md:px-6 lg:px-8">
+      <div className="mx-auto w-full max-w-[1400px] px-6 md:px-10 lg:px-16">
         <ScrollReveal className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-zinc-900 tracking-tight mb-4">
-            <span className="text-brand">Consult with Us! </span>
+            <span className="text-brand">Consult</span> with Us!
           </h2>
           <p className="text-zinc-500 text-base md:text-lg max-w-2xl mx-auto mb-16">
             Fill out the details below to receive an initial quote and{" "}

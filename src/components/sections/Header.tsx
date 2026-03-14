@@ -10,6 +10,7 @@ const navLinks = [
   { name: "Services", href: "/#services" },
   { name: "Platform", href: "/#platform" },
   { name: "Process", href: "/#process" },
+  { name: "FAQ", href: "/#faq" },
   { name: "Contact", href: "/#contact" },
 ];
 
@@ -19,6 +20,17 @@ export function Header() {
 
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+
+  const handleMobileNavClick = (e: React.MouseEvent, href: string) => {
+    e.preventDefault();
+    setMenuOpen(false);
+    const hash = href.split("#")[1];
+    if (hash) {
+      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -156,7 +168,7 @@ export function Header() {
               <Link
                 key={link.name}
                 href={link.href}
-                onClick={() => setMenuOpen(false)}
+                onClick={(e) => handleMobileNavClick(e, link.href)}
                 className="text-gray-900 text-[17px] font-medium"
               >
                 {link.name}
