@@ -3,7 +3,7 @@ import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
   try {
-    const { name, email, whatsapp, description } = await req.json();
+    const { name, email, whatsapp, message } = await req.json();
 
     // Create a transporter
     const transporter = nodemailer.createTransport({
@@ -26,9 +26,9 @@ export async function POST(req: Request) {
         Name: ${name}
         Email: ${email}
         WhatsApp: ${whatsapp}
-        
-        Project Description:
-        ${description}
+
+        Message:
+        ${message}
       `,
       html: `
         <h3>New Project Inquiry</h3>
@@ -36,8 +36,8 @@ export async function POST(req: Request) {
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>WhatsApp:</strong> ${whatsapp}</p>
         <br/>
-        <p><strong>Project Description:</strong></p>
-        <p>${description.replace(/\n/g, "<br/>")}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message.replace(/\n/g, "<br/>")}</p>
       `,
     };
 
