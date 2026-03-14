@@ -1,10 +1,20 @@
 "use client";
 
+import type { ReactNode } from "react";
 import { useState } from "react";
-import { Check, Mail, Phone, MapPin, Send, X, CheckCircle2, AlertCircle } from "lucide-react";
+import {
+  AlertCircle,
+  CheckCircle2,
+  Mail,
+  MapPin,
+  Phone,
+  Send,
+  X,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 type FormData = {
   name: string;
@@ -40,7 +50,9 @@ export function ContactSection() {
     message: "",
   });
   const [errors, setErrors] = useState<FormErrors>({});
-  const [touched, setTouched] = useState<Partial<Record<keyof FormData, boolean>>>({});
+  const [touched, setTouched] = useState<
+    Partial<Record<keyof FormData, boolean>>
+  >({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
@@ -62,7 +74,10 @@ export function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const allTouched: Partial<Record<keyof FormData, boolean>> = {
-      name: true, email: true, whatsapp: true, message: true,
+      name: true,
+      email: true,
+      whatsapp: true,
+      message: true,
     };
     setTouched(allTouched);
     const formErrors = validateForm(formData);
@@ -100,7 +115,7 @@ export function ContactSection() {
 
   const currentState = isSubmitting ? "submitting" : status;
 
-  const buttonContent: Record<string, React.ReactNode> = {
+  const buttonContent: Record<string, ReactNode> = {
     idle: (
       <span className="flex items-center gap-2">
         <Send className="w-4 h-4" />
@@ -109,9 +124,25 @@ export function ContactSection() {
     ),
     submitting: (
       <span className="flex items-center gap-2">
-        <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+        <svg
+          className="animate-spin h-5 w-5 text-white"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <circle
+            className="opacity-25"
+            cx="12"
+            cy="12"
+            r="10"
+            stroke="currentColor"
+            strokeWidth="4"
+          />
+          <path
+            className="opacity-75"
+            fill="currentColor"
+            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+          />
         </svg>
         Sending...
       </span>
@@ -145,34 +176,29 @@ export function ContactSection() {
   return (
     <section id="contact" className="py-20 bg-zinc-50 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
-
-        {/* Header — centered */}
-        <div className="text-center mb-12">
+        <ScrollReveal className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-zinc-900 tracking-tight mb-4">
-            Consult with Us
+            <span className="text-brand">Consult with Us! </span>
           </h2>
           <p className="text-zinc-500 text-base md:text-lg max-w-2xl mx-auto mb-16">
-            Fill out the details below to receive an initial quote and technical consultation from the piowsee engineering team.
+            Fill out the details below to receive an initial quote and{" "}
+            <span className="text-brand">technical consultation</span> from the
+            piowsee engineering team.
           </p>
-          {/* <div className="flex flex-wrap justify-center gap-4 md:gap-8">
-            {["Fast & structured setup", "Modern AI integration", "1-on-1 Technical consultation"].map((item, idx) => (
-              <div key={idx} className="flex items-center gap-2 text-[13px] md:text-sm font-medium text-zinc-700">
-                <Check className="w-4 h-4 text-[#218b87]" />
-                {item}
-              </div>
-            ))}
-          </div> */}
-        </div>
+        </ScrollReveal>
 
-        {/* Two-column layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 max-w-5xl mx-auto items-start">
-
-          {/* Left — Contact Information */}
-          <div className="flex flex-col justify-center space-y-8 lg:pt-4">
+          <ScrollReveal
+            className="flex flex-col justify-center space-y-8 lg:pt-4"
+            delay={120}
+          >
             <div>
-              <h3 className="text-xl font-bold text-zinc-900 mb-2">Contact Information</h3>
+              <h3 className="text-xl font-bold text-zinc-900 mb-2">
+                Contact Information
+              </h3>
               <p className="text-zinc-500 text-sm leading-relaxed">
-                Reach out directly or fill in the form and we&apos;ll get back to you shortly.
+                Reach out directly or fill in the form and we&apos;ll get back
+                to you shortly.
               </p>
             </div>
 
@@ -182,7 +208,9 @@ export function ContactSection() {
                   <Mail className="w-5 h-5 text-[#218b87]" />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1">Email</p>
+                  <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1">
+                    Email
+                  </p>
                   <a
                     href="mailto:poc.helpteam@gmail.com"
                     className="text-zinc-900 font-medium hover:text-[#218b87] transition"
@@ -197,7 +225,9 @@ export function ContactSection() {
                   <Phone className="w-5 h-5 text-[#218b87]" />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1">Phone</p>
+                  <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1">
+                    Phone
+                  </p>
                   <a
                     href="https://wa.me/6285195563454"
                     target="_blank"
@@ -214,7 +244,9 @@ export function ContactSection() {
                   <MapPin className="w-5 h-5 text-[#218b87]" />
                 </div>
                 <div>
-                  <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1">Location</p>
+                  <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1">
+                    Location
+                  </p>
                   <a
                     href="https://www.google.com/maps/search/?api=1&query=Sumedang%2C+West+Java"
                     target="_blank"
@@ -226,15 +258,17 @@ export function ContactSection() {
                 </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
-          {/* Right — Form Card */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 border border-zinc-100">
+          <ScrollReveal
+            className="bg-white rounded-2xl shadow-xl p-8 border border-zinc-100"
+            delay={220}
+          >
             <form onSubmit={handleSubmit} className="space-y-4" noValidate>
-
-              {/* Name */}
               <div className="space-y-1.5">
-                <Label htmlFor="name" className="text-sm font-semibold text-zinc-700">Name</Label>
+                <Label htmlFor="name" className="text-sm font-semibold text-zinc-700">
+                  Name
+                </Label>
                 <Input
                   id="name"
                   type="text"
@@ -246,14 +280,16 @@ export function ContactSection() {
                 />
                 {errors.name && touched.name && (
                   <p className="text-xs text-red-500 flex items-center gap-1 animate-in fade-in slide-in-from-top-1 duration-200">
-                    <X className="w-3 h-3 flex-shrink-0" />{errors.name}
+                    <X className="w-3 h-3 flex-shrink-0" />
+                    {errors.name}
                   </p>
                 )}
               </div>
 
-              {/* Email */}
               <div className="space-y-1.5">
-                <Label htmlFor="email" className="text-sm font-semibold text-zinc-700">Email</Label>
+                <Label htmlFor="email" className="text-sm font-semibold text-zinc-700">
+                  Email
+                </Label>
                 <Input
                   id="email"
                   type="email"
@@ -265,14 +301,19 @@ export function ContactSection() {
                 />
                 {errors.email && touched.email && (
                   <p className="text-xs text-red-500 flex items-center gap-1 animate-in fade-in slide-in-from-top-1 duration-200">
-                    <X className="w-3 h-3 flex-shrink-0" />{errors.email}
+                    <X className="w-3 h-3 flex-shrink-0" />
+                    {errors.email}
                   </p>
                 )}
               </div>
 
-              {/* WhatsApp */}
               <div className="space-y-1.5">
-                <Label htmlFor="whatsapp" className="text-sm font-semibold text-zinc-700">WhatsApp</Label>
+                <Label
+                  htmlFor="whatsapp"
+                  className="text-sm font-semibold text-zinc-700"
+                >
+                  WhatsApp
+                </Label>
                 <Input
                   id="whatsapp"
                   type="tel"
@@ -284,14 +325,19 @@ export function ContactSection() {
                 />
                 {errors.whatsapp && touched.whatsapp && (
                   <p className="text-xs text-red-500 flex items-center gap-1 animate-in fade-in slide-in-from-top-1 duration-200">
-                    <X className="w-3 h-3 flex-shrink-0" />{errors.whatsapp}
+                    <X className="w-3 h-3 flex-shrink-0" />
+                    {errors.whatsapp}
                   </p>
                 )}
               </div>
 
-              {/* Message */}
               <div className="space-y-1.5">
-                <Label htmlFor="message" className="text-sm font-semibold text-zinc-700">Message</Label>
+                <Label
+                  htmlFor="message"
+                  className="text-sm font-semibold text-zinc-700"
+                >
+                  Message
+                </Label>
                 <textarea
                   id="message"
                   placeholder="Tell us about your project requirements..."
@@ -306,12 +352,12 @@ export function ContactSection() {
                 />
                 {errors.message && touched.message && (
                   <p className="text-xs text-red-500 flex items-center gap-1 animate-in fade-in slide-in-from-top-1 duration-200">
-                    <X className="w-3 h-3 flex-shrink-0" />{errors.message}
+                    <X className="w-3 h-3 flex-shrink-0" />
+                    {errors.message}
                   </p>
                 )}
               </div>
 
-              {/* Submit Button */}
               <Button
                 type="submit"
                 disabled={isSubmitting}
@@ -319,11 +365,9 @@ export function ContactSection() {
               >
                 {buttonContent[currentState]}
               </Button>
-
             </form>
-          </div>
+          </ScrollReveal>
         </div>
-
       </div>
     </section>
   );

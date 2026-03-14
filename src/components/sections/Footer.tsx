@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const platformLinks = [
   { label: "pocv", href: "#" },
@@ -28,42 +29,37 @@ export function Footer() {
     >
       {/* GLOBAL CONTAINER */}
       <div className="mx-auto w-full max-w-[1400px] px-6 md:px-10 lg:px-16 py-20">
+        <ScrollReveal>
+          <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.35fr_0.8fr_1.1fr_0.8fr_0.95fr] lg:gap-8 xl:gap-12">
+            <div className="max-w-sm space-y-5">
+              <Link href="/" className="inline-flex items-center gap-2.5">
+                <Image
+                  src="/piowsee-logo.svg"
+                  alt="piowsee logo"
+                  width={32}
+                  height={32}
+                  className="h-8 w-auto"
+                />
+                <span className="text-2xl font-bold tracking-tight">
+                  piowsee
+                </span>
+              </Link>
 
-        {/* Footer Grid */}
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.35fr_0.8fr_1.1fr_0.8fr_0.95fr] lg:gap-8 xl:gap-12">
-          
-          {/* Logo Column */}
-          <div className="max-w-sm space-y-5">
-            <Link href="/" className="inline-flex items-center gap-2.5">
-              <Image
-                src="/piowsee-logo.svg"
-                alt="piowsee logo"
-                width={32}
-                height={32}
-                className="h-8 w-auto"
-              />
-              <span className="text-2xl font-bold tracking-tight">
-                piowsee
-              </span>
-            </Link>
+              <p className="text-[15px] leading-7 text-zinc-400">
+                AI-native software house building intelligent digital products.
+              </p>
+            </div>
 
-            <p className="text-[15px] leading-7 text-zinc-400">
-              AI-native software house building intelligent digital products.
-            </p>
+            <FooterColumn title="Platform" links={platformLinks} />
+            <FooterColumn title="Services" links={serviceLinks} />
+            <FooterColumn title="Legal" links={legalLinks} />
+            <LanguageColumn />
           </div>
+        </ScrollReveal>
 
-          <FooterColumn title="Platform" links={platformLinks} />
-          <FooterColumn title="Services" links={serviceLinks} />
-          <FooterColumn title="Legal" links={legalLinks} />
-          <LanguageColumn />
-
-        </div>
-
-        {/* Bottom Copyright */}
         <div className="mt-16 border-t border-white/5 pt-6 text-[13px] text-zinc-500">
           <p>&copy; {year} piowsee. Engineered in Indonesia.</p>
         </div>
-
       </div>
     </footer>
   );

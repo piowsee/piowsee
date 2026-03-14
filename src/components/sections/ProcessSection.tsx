@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const promos = [
   {
@@ -26,49 +27,49 @@ export function ProcessSection() {
     <section id="process" className="py-24 bg-white">
       {/* Container align dengan section lain */}
       <div className="mx-auto w-full max-w-[1400px] px-6 md:px-10 lg:px-16">
+        <ScrollReveal className="text-center">
+          <h2 className="text-3xl md:text-5xl lg:text-[50px] font-bold text-center mb-5 tracking-tight">
+            Tailored <span className="text-brand">Software Development.</span>
+          </h2>
 
-        <h2 className="text-3xl md:text-5xl lg:text-[50px] font-bold text-center mb-5 tracking-tight">
-          Tailored Software Development.
-        </h2>
-
-        <p className="text-lg md:text-xl text-center text-gray-600 mb-14 max-w-2xl mx-auto leading-relaxed">
-          Require a specific solution? We build secure, high-performance custom applications.
-        </p>
+          <p className="text-lg md:text-xl text-center text-gray-600 mb-14 max-w-2xl mx-auto leading-relaxed">
+            Require a specific solution? We build secure, high-performance{" "}
+            <span className="text-brand">custom applications</span>.
+          </p>
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {promos.map((promo) => (
-            <div key={promo.id} className="flex flex-col">
-              
-              {/* Image Box */}
-              <div className="rounded-[28px] overflow-hidden mb-5 aspect-[4/3] bg-zinc-100 relative">
-                <img
-                  src={promo.image}
-                  alt={promo.title}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+            <ScrollReveal key={promo.id} delay={promo.id * 100}>
+              <div className="flex flex-col">
+                <div className="rounded-[28px] overflow-hidden mb-5 aspect-[4/3] bg-zinc-100 relative">
+                  <img
+                    src={promo.image}
+                    alt={promo.title}
+                    className="w-full h-full object-cover transition-transform duration-700"
+                  />
+                </div>
 
-              {/* Content Box */}
-              <div className="flex flex-col flex-1 px-2">
-                <span className="text-brand font-bold tracking-wider uppercase text-[13px] mb-2.5">
-                  {promo.category}
-                </span>
+                <div className="flex flex-col flex-1 px-2">
+                  <span className="text-brand font-bold tracking-wider uppercase text-[13px] mb-2.5">
+                    {promo.category}
+                  </span>
 
-                <h3 className="text-xl md:text-2xl font-bold leading-tight mb-6">
-                  {promo.title}
-                </h3>
+                  <h3 className="text-xl md:text-2xl font-bold leading-tight mb-6">
+                    {promo.title}
+                  </h3>
 
-                <div className="mt-auto">
-                  <Link
-                    href="#"
-                    className="inline-flex items-center justify-center px-5 py-2.5 text-sm md:text-[15px] rounded-full bg-brand text-white font-bold cursor-pointer transition-transform hover:bg-brand/90"
-                  >
-                    Read More
-                  </Link>
+                  <div className="mt-auto">
+                    <Link
+                      href="#"
+                      className="inline-flex items-center justify-center px-5 py-2.5 text-sm md:text-[15px] rounded-full bg-brand text-white font-bold cursor-pointer transition-transform hover:bg-brand/90 hover:-translate-y-0.25"
+                    >
+                      Read More
+                    </Link>
+                  </div>
                 </div>
               </div>
-
-            </div>
+            </ScrollReveal>
           ))}
         </div>
 

@@ -2,6 +2,8 @@
 
 import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { ArrowRight } from "lucide-react";
 
 export function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -19,7 +21,7 @@ export function HeroSection() {
     >
       {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-black/75 z-10" />
+        <div className="absolute inset-0 bg-black/70 z-10" />
 
         <video
           ref={videoRef}
@@ -36,10 +38,7 @@ export function HeroSection() {
 
       {/* Content Container */}
       <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 md:px-10 lg:px-16 h-full flex flex-col justify-center">
-        
-        {/* Hero Content */}
-        <div className="max-w-[800px] space-y-6 mt-16">
-          
+        <ScrollReveal className="max-w-[800px] space-y-6 mt-16">
           <h1 className="text-4xl md:text-6xl lg:text-[76px] font-bold text-white leading-[1.05] tracking-tight">
             Automating Complexity.
             <br />
@@ -48,22 +47,21 @@ export function HeroSection() {
 
           <p className="text-lg md:text-xl text-white max-w-[600px] font-medium opacity-90">
             piowsee is a software house building intelligent digital products
-            and solutions. We help businesses optimize operations and scale
+            {" "}and solutions. We help businesses optimize operations and scale
             faster through modern technology.
           </p>
 
           <div className="pt-4 flex gap-4 flex-wrap">
-            
-            <Button className="cursor-pointer rounded-full bg-white text-black hover:text-black font-bold px-6 py-5 text-base transition-transform">
+            <Button className="cursor-7oint6r rounded-full bg-brand text-white font-bold px-6 py-7 text-base transition-transform">
               Explore Our Platform
             </Button>
 
-            <Button className="cursor-pointer rounded-full bg-transparent border-2 border-white text-white font-bold px-6 py-5 text-base transition-all hover:bg-black/20">
+            <Button className="cursor-pointer rounded-full bg-trans6arent border-2 border-white text-white font-bold px-6 py-7 text-base transition-all hover:bg-black/10 flex items-center gap-2 group">
               Consult With Our Engineers
+              <ArrowRight className="size-5 transition-transform duration-200 group-hover:translate-x-1" />
             </Button>
-
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

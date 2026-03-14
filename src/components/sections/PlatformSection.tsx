@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Check } from "lucide-react";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const platforms = [
   {
@@ -46,18 +47,21 @@ export function PlatformSection() {
     <section id="platform" className="py-24 bg-zinc-50 overflow-hidden">
       {/* GLOBAL CONTAINER */}
       <div className="mx-auto w-full max-w-[1400px] px-6 md:px-10 lg:px-16">
+        <ScrollReveal className="text-center">
+          <h2 className="text-3xl md:text-5xl lg:text-[50px] font-bold text-black mb-3 tracking-tight leading-tight">
+            <span className="text-brand">Our Platforms.</span> In Development.
+          </h2>
 
-        {/* Heading */}
-        <h2 className="text-3xl md:text-5xl lg:text-[50px] font-bold text-center text-black mb-3 tracking-tight leading-tight">
-          Our Platforms. In Development.
-        </h2>
+          <p className="text-lg md:text-xl text-zinc-500 mb-12">
+            Explore what we&apos;re{" "}
+            <span className="text-brand">building next</span>.
+          </p>
+        </ScrollReveal>
 
-        <p className="text-lg md:text-xl text-center text-zinc-500 mb-12">
-          Explore what we&apos;re building next.
-        </p>
-
-        {/* Tabs */}
-        <div className="flex flex-wrap justify-center gap-3 mb-10">
+        <ScrollReveal
+          className="flex flex-wrap justify-center gap-3 mb-10"
+          delay={100}
+        >
           {platforms.map((platform, index) => (
             <button
               key={platform.id}
@@ -77,10 +81,12 @@ export function PlatformSection() {
               )}
             </button>
           ))}
-        </div>
+        </ScrollReveal>
 
-        {/* Features */}
-        <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 mb-12">
+        <ScrollReveal
+          className="flex flex-wrap justify-center gap-x-6 gap-y-3 mb-12"
+          delay={180}
+        >
           {active.features.map((feature) => (
             <div
               key={feature}
@@ -90,20 +96,16 @@ export function PlatformSection() {
               {feature}
             </div>
           ))}
-        </div>
+        </ScrollReveal>
 
-        {/* Preview Box */}
-        <div className="max-w-4xl mx-auto">
+        <ScrollReveal className="max-w-4xl mx-auto" delay={260}>
           <div className="rounded-2xl border border-zinc-300 bg-gray-200 shadow-2xl shadow-black/20 overflow-hidden p-1.5">
-            
-            {/* Browser Bar */}
             <div className="flex items-center gap-2 px-3 py-1.5">
               <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
               <div className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
               <div className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
             </div>
 
-            {/* Video */}
             <div className="relative aspect-video w-full rounded-lg overflow-hidden border border-zinc-300 bg-zinc-950 mt-1">
               <video
                 key={active.id}
@@ -118,14 +120,15 @@ export function PlatformSection() {
                 Your browser does not support the video tag.
               </video>
             </div>
-
           </div>
-        </div>
+        </ScrollReveal>
 
-        {/* Description */}
-        <p className="text-center text-zinc-500 mt-8 max-w-xl mx-auto text-base leading-relaxed">
-          {active.description}
-        </p>
+        <ScrollReveal
+          className="text-center text-zinc-500 mt-8 max-w-xl mx-auto text-base leading-relaxed"
+          delay={320}
+        >
+          <p>{active.description}</p>
+        </ScrollReveal>
 
       </div>
     </section>

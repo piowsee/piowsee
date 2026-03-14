@@ -11,6 +11,7 @@ import {
   CarouselPrevious,
   useCarousel,
 } from "@/components/ui/carousel";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const services = [
   {
@@ -85,19 +86,18 @@ export function ServicesSection() {
     <section id="services" className="py-20 lg:py-28 bg-white overflow-hidden">
       {/* GLOBAL CONTAINER (align dengan header) */}
       <div className="mx-auto w-full max-w-[1400px] px-6 md:px-10 lg:px-16">
-        
-        {/* Section Header */}
-        <div className="mb-14 max-w-2xl mx-auto text-center">
+        <ScrollReveal className="mb-14 max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4">
-            Why piowsee
+            Why <span className="text-brand">piowsee?</span>
           </h2>
           <p className="text-lg md:text-xl text-gray-700">
-            Engineering the Future of Digital Business.
+            Engineering the future of{" "}
+            <span className="text-brand">digital business</span>.
           </p>
-        </div>
+        </ScrollReveal>
 
         {/* Carousel */}
-        <div className="relative">
+        <ScrollReveal className="relative" delay={120}>
           <Carousel
             opts={{
               align: "start",
@@ -160,7 +160,7 @@ export function ServicesSection() {
             {/* Dots */}
             <CarouselDots />
           </Carousel>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
