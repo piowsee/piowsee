@@ -18,6 +18,7 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,7 +33,13 @@ export function Header() {
   // Close menu if clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      const target = event.target as Node;
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(target) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(target)
+      ) {
         setMenuOpen(false);
       }
     };
@@ -106,6 +113,7 @@ export function Header() {
 
         {/* Hamburger Button */}
         <button
+          ref={buttonRef}
           onClick={() => setMenuOpen(!menuOpen)}
           className={`lg:hidden cursor-pointer ${
             isScrolled ? "text-black" : "text-white"

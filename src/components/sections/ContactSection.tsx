@@ -162,8 +162,8 @@ export function ContactSection() {
   };
 
   const buttonClass: Record<string, string> = {
-    idle: "bg-[#218b87] hover:bg-[#1a7672]",
-    submitting: "bg-[#218b87] opacity-80",
+    idle: "bg-brand hover:bg-[#1a7672]",
+    submitting: "bg-brand opacity-80",
     success: "bg-emerald-500 hover:bg-emerald-500",
     error: "bg-red-700 hover:bg-red-700",
   };
@@ -171,7 +171,7 @@ export function ContactSection() {
   const inputBorder = (field: keyof FormData) =>
     errors[field] && touched[field]
       ? "border-red-400 focus-visible:ring-red-300/40"
-      : "border-zinc-200 focus-visible:ring-[#218b87]/30";
+      : "border-zinc-200 focus-visible:ring-brand/30";
 
   return (
     <section id="contact" className="py-20 bg-zinc-50 overflow-hidden">
@@ -204,8 +204,8 @@ export function ContactSection() {
 
             <div className="space-y-6">
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-[#218b87]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Mail className="w-5 h-5 text-[#218b87]" />
+                <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Mail className="w-5 h-5 text-brand" />
                 </div>
                 <div>
                   <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1">
@@ -213,7 +213,7 @@ export function ContactSection() {
                   </p>
                   <a
                     href="mailto:poc.helpteam@gmail.com"
-                    className="text-zinc-900 font-medium hover:text-[#218b87] transition"
+                    className="text-zinc-900 font-medium hover:text-brand transition"
                   >
                     poc.helpteam@gmail.com
                   </a>
@@ -221,8 +221,8 @@ export function ContactSection() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-[#218b87]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Phone className="w-5 h-5 text-[#218b87]" />
+                <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Phone className="w-5 h-5 text-brand" />
                 </div>
                 <div>
                   <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1">
@@ -232,7 +232,7 @@ export function ContactSection() {
                     href="https://wa.me/6285195563454"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-zinc-900 font-medium hover:text-[#218b87] transition"
+                    className="text-zinc-900 font-medium hover:text-brand transition"
                   >
                     +62 851 9556 3454
                   </a>
@@ -240,8 +240,8 @@ export function ContactSection() {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-[#218b87]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <MapPin className="w-5 h-5 text-[#218b87]" />
+                <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <MapPin className="w-5 h-5 text-brand" />
                 </div>
                 <div>
                   <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1">
@@ -251,7 +251,7 @@ export function ContactSection() {
                     href="https://www.google.com/maps/search/?api=1&query=Sumedang%2C+West+Java"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-zinc-900 font-medium hover:text-[#218b87] transition"
+                    className="text-zinc-900 font-medium hover:text-brand transition"
                   >
                     Sumedang, West Java
                   </a>
@@ -344,7 +344,7 @@ export function ContactSection() {
                   className={`w-full min-h-[120px] bg-zinc-50 border px-4 py-3 text-zinc-900 placeholder:text-zinc-400 outline-none focus:ring-2 transition-all font-medium rounded-lg resize-none text-sm ${
                     errors.message && touched.message
                       ? "border-red-400 focus:ring-red-200"
-                      : "border-zinc-200 focus:ring-[#218b87]/20 focus:border-[#218b87]"
+                      : "border-zinc-200 focus:ring-brand/20 focus:border-brand"
                   }`}
                   value={formData.message}
                   onChange={(e) => handleChange("message", e.target.value)}
