@@ -51,31 +51,31 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-zinc-50 overflow-hidden">
+    <section id="contact" className="py-20 bg-zinc-50 overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         {/* Main CTA Block */}
-        <div className="bg-zinc-50 rounded-3xl p-8 md:p-16 text-center relative">
+        <div className="bg-zinc-50 rounded-3xl p-6 md:p-12 text-center relative">
           {/* Decorative background elements */}
           <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
-            <div className="absolute -top-24 -left-24 w-96 h-96 bg-zinc-50 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob" />
-            <div className="absolute top-1/2 -right-24 w-96 h-96 bg-[#218b87]/5 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000" />
+            <div className="absolute -top-24 -left-24 w-80 h-80 bg-zinc-50 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob" />
+            <div className="absolute top-1/2 -right-24 w-80 h-80 bg-[#218b87]/5 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob animation-delay-2000" />
           </div>
 
           <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
             {/* Main Header */}
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-zinc-900 tracking-tight mb-8">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-zinc-900 tracking-tight mb-6">
               Ready to boost your business efficiency?
             </h2>
 
             {/* Checklist */}
-            <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-10">
+            <div className="flex flex-wrap justify-center gap-4 md:gap-8 mb-8">
               {[
                 "Fast & structured setup",
                 "Modern AI integration",
                 "1-on-1 Technical consultation"
               ].map((item, idx) => (
-                <div key={idx} className="flex items-center gap-2 text-sm md:text-base font-medium text-zinc-700">
-                  <Check className="w-5 h-5 text-[#218b87]" />
+                <div key={idx} className="flex items-center gap-2 text-[13px] md:text-sm font-medium text-zinc-700">
+                  <Check className="w-4 h-4 text-[#218b87]" />
                   {item}
                 </div>
               ))}
@@ -83,9 +83,9 @@ export function ContactSection() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-              <Button 
+              <Button
                 onClick={() => setIsModalOpen(true)}
-                className="w-full sm:w-auto bg-[#218b87] hover:bg-[#1a7672] text-white rounded-full px-8 py-6 text-lg font-semibold shadow-lg shadow-[#218b87]/20 hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer"
+                className="w-full sm:w-auto bg-[#218b87] hover:bg-[#1a7672] text-white rounded-full px-6 py-5 text-[17px] font-semibold shadow-lg shadow-[#218b87]/20 hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer"
               >
                 <MessageSquare className="w-5 h-5 mr-2" />
                 Consult with Us
@@ -116,7 +116,7 @@ export function ContactSection() {
                 placeholder="John Doe"
                 className="w-full bg-zinc-50 border-zinc-200 px-4 py-6 text-zinc-900 placeholder:text-zinc-400 focus-visible:ring-blue-500 transition-all font-medium rounded-lg"
                 value={formData.name}
-                onChange={(e) => setFormData({...formData, name: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               />
             </div>
 
@@ -130,7 +130,7 @@ export function ContactSection() {
                 placeholder="you@email.com"
                 className="w-full bg-zinc-50 border-zinc-200 px-4 py-6 text-zinc-900 placeholder:text-zinc-400 focus-visible:ring-blue-500 transition-all font-medium rounded-lg"
                 value={formData.email}
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               />
             </div>
 
@@ -144,7 +144,7 @@ export function ContactSection() {
                 placeholder="e.g. +1234567890"
                 className="w-full bg-zinc-50 border-zinc-200 px-4 py-6 text-zinc-900 placeholder:text-zinc-400 focus-visible:ring-blue-500 transition-all font-medium rounded-lg"
                 value={formData.whatsapp}
-                onChange={(e) => setFormData({...formData, whatsapp: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
               />
             </div>
 
@@ -157,7 +157,7 @@ export function ContactSection() {
                 placeholder="Tell us about your project requirements..."
                 className="w-full min-h-[120px] bg-zinc-50 border border-zinc-200 px-4 py-3 text-zinc-900 placeholder:text-zinc-400 focus-visible:ring-2 focus-visible:ring-blue-500/20 focus-visible:outline-none focus:border-blue-500 transition-all font-medium rounded-lg resize-none"
                 value={formData.description}
-                onChange={(e) => setFormData({...formData, description: e.target.value})}
+                onChange={(e) => setFormData({ ...formData, description: e.target.value })}
               />
             </div>
 
@@ -175,7 +175,7 @@ export function ContactSection() {
 
             {/* Submit */}
             <div className="pt-4">
-              <Button 
+              <Button
                 type="submit"
                 disabled={isSubmitting || status === "success"}
                 className="w-full bg-[#10b981] hover:bg-[#059669] text-white rounded-lg py-6 text-lg font-bold shadow-md hover:shadow-lg transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"

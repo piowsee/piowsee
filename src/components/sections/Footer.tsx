@@ -26,21 +26,28 @@ export function Footer() {
       id="contact"
       className="border-t border-white/5 bg-[#050505] text-white"
     >
-      <div className="container mx-auto px-5 py-20 md:px-8 lg:px-10 xl:px-12">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.35fr_0.8fr_1.1fr_0.8fr_0.95fr] lg:gap-10 xl:gap-14">
-          <div className="max-w-sm space-y-6">
-            <Link href="/" className="inline-flex items-center gap-3">
+      {/* GLOBAL CONTAINER */}
+      <div className="mx-auto w-full max-w-[1400px] px-6 md:px-10 lg:px-16 py-20">
+
+        {/* Footer Grid */}
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.35fr_0.8fr_1.1fr_0.8fr_0.95fr] lg:gap-8 xl:gap-12">
+          
+          {/* Logo Column */}
+          <div className="max-w-sm space-y-5">
+            <Link href="/" className="inline-flex items-center gap-2.5">
               <Image
                 src="/piowsee-logo.svg"
                 alt="piowsee logo"
-                width={36}
-                height={36}
-                className="h-9 w-auto"
+                width={32}
+                height={32}
+                className="h-8 w-auto"
               />
-              <span className="text-3xl font-bold tracking-tight">piowsee</span>
+              <span className="text-2xl font-bold tracking-tight">
+                piowsee
+              </span>
             </Link>
 
-            <p className="text-base leading-8 text-zinc-400">
+            <p className="text-[15px] leading-7 text-zinc-400">
               AI-native software house building intelligent digital products.
             </p>
           </div>
@@ -49,11 +56,14 @@ export function Footer() {
           <FooterColumn title="Services" links={serviceLinks} />
           <FooterColumn title="Legal" links={legalLinks} />
           <LanguageColumn />
+
         </div>
 
-        <div className="mt-16 border-t border-white/5 pt-6 text-sm text-zinc-500">
+        {/* Bottom Copyright */}
+        <div className="mt-16 border-t border-white/5 pt-6 text-[13px] text-zinc-500">
           <p>&copy; {year} piowsee. Engineered in Indonesia.</p>
         </div>
+
       </div>
     </footer>
   );
@@ -79,7 +89,7 @@ function FooterColumn({ title, links }: FooterColumnProps) {
           <li key={link.label}>
             <Link
               href={link.href}
-              className="text-base text-zinc-300 transition hover:text-white"
+              className="cursor-pointer text-base text-zinc-300 transition hover:text-white"
             >
               {link.label}
             </Link>
@@ -110,6 +120,7 @@ function LanguageColumn() {
             Indonesia
           </option>
         </select>
+
         <div className="pointer-events-none absolute inset-y-1 right-2 flex w-9 items-center justify-center rounded-full">
           <ChevronDown className="h-4 w-4 text-zinc-400" />
         </div>
