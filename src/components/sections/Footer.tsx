@@ -1,72 +1,119 @@
-import Link from "next/link";
 import Image from "next/image";
-import { Globe } from "lucide-react";
+import Link from "next/link";
+import { ChevronDown } from "lucide-react";
+
+const platformLinks = [
+  { label: "pocv", href: "#" },
+  { label: "pesan.ai", href: "#" },
+];
+
+const serviceLinks = [
+  { label: "Generative AI Integration", href: "#" },
+  { label: "Modern Web Applications", href: "#" },
+  { label: "Data Processing Systems", href: "#" },
+];
+
+const legalLinks = [
+  { label: "Privacy Policy", href: "/privacy" },
+  { label: "Terms of Service", href: "/terms" },
+];
 
 export function Footer() {
+  const year = new Date().getFullYear();
+
   return (
-    <footer id="contact" className="bg-[#0A0A0A] text-white pt-16 pb-8">
-      <div className="max-w-5xl mx-auto pl-8 pr-4 md:pl-16 md:pr-6 lg:pl-20">
-        {/* Top Section */}
-        <div className="flex flex-col md:flex-row justify-between items-start mb-10 gap-8">
-          {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <Image
-              src="/piowsee-logo.svg"
-              alt="piowsee logo"
-              width={32}
-              height={32}
-              className="h-8 w-auto"
-            />
-            <span className="ml-3 text-white font-bold text-2xl tracking-tighter">
-              piowsee
-            </span>
-          </Link>
+    <footer
+      id="contact"
+      className="border-t border-white/5 bg-[#050505] text-white"
+    >
+      <div className="container mx-auto px-5 py-20 md:px-8 lg:px-10 xl:px-12">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.35fr_0.8fr_1.1fr_0.8fr_0.95fr] lg:gap-10 xl:gap-14">
+          <div className="max-w-sm space-y-6">
+            <Link href="/" className="inline-flex items-center gap-3">
+              <Image
+                src="/piowsee-logo.svg"
+                alt="piowsee logo"
+                width={36}
+                height={36}
+                className="h-9 w-auto"
+              />
+              <span className="text-3xl font-bold tracking-tight">piowsee</span>
+            </Link>
 
-          {/* Apps Download / Location Box */}
-           <div className="flex items-center gap-4">
-              <Link href="#" className="bg-zinc-800 hover:bg-zinc-700 py-3 px-6 rounded-full flex items-center font-bold text-sm transition-colors text-white">
-                 <Globe className="w-5 h-5 mr-3" />
-                 Indonesia
-              </Link>
-           </div>
+            <p className="text-base leading-8 text-zinc-400">
+              AI-native software house building intelligent digital products.
+            </p>
+          </div>
+
+          <FooterColumn title="Platform" links={platformLinks} />
+          <FooterColumn title="Services" links={serviceLinks} />
+          <FooterColumn title="Legal" links={legalLinks} />
+          <LanguageColumn />
         </div>
 
-        {/* Links Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-           {/* Column 1: Platform */}
-           <div className="space-y-3">
-              <h4 className="font-bold text-lg mb-4 tracking-wide">Platform</h4>
-              <ul className="space-y-4">
-                 <li><Link href="#" className="text-gray-400 hover:text-white font-medium transition-colors">pocv</Link></li>
-                 <li><Link href="#" className="text-gray-400 hover:text-white font-medium transition-colors">Pesan AI</Link></li>
-              </ul>
-           </div>
-           
-           {/* Column 2: Services */}
-           <div className="space-y-3">
-              <h4 className="font-bold text-lg mb-4 tracking-wide">Services</h4>
-              <ul className="space-y-3">
-                 <li><Link href="#" className="text-gray-400 hover:text-white font-medium transition-colors">AI Integration</Link></li>
-                 <li><Link href="#" className="text-gray-400 hover:text-white font-medium transition-colors">Web Applications</Link></li>
-                 <li><Link href="#" className="text-gray-400 hover:text-white font-medium transition-colors">Data Systems</Link></li>
-              </ul>
-           </div>
-
-           {/* Column 3: Legal */}
-           <div className="space-y-3">
-              <h4 className="font-bold text-lg mb-4 tracking-wide">Legal</h4>
-              <ul className="space-y-3">
-                 <li><Link href="/privacy" className="text-gray-400 hover:text-white font-medium transition-colors">Privacy Policy</Link></li>
-                 <li><Link href="/terms" className="text-gray-400 hover:text-white font-medium transition-colors">Terms of Service</Link></li>
-              </ul>
-           </div>
-
-        </div>
-
-        <div className="border-t border-zinc-800 pt-6 mt-10 text-sm text-gray-500 font-medium">
-          <p>© {new Date().getFullYear()} piowsee. Engineered in Indonesia.</p>
+        <div className="mt-16 border-t border-white/5 pt-6 text-sm text-zinc-500">
+          <p>&copy; {year} piowsee. Engineered in Indonesia.</p>
         </div>
       </div>
     </footer>
+  );
+}
+
+type FooterColumnProps = {
+  title: string;
+  links: Array<{
+    label: string;
+    href: string;
+  }>;
+};
+
+function FooterColumn({ title, links }: FooterColumnProps) {
+  return (
+    <div className="space-y-5">
+      <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
+        {title}
+      </h4>
+
+      <ul className="space-y-4">
+        {links.map((link) => (
+          <li key={link.label}>
+            <Link
+              href={link.href}
+              className="text-base text-zinc-300 transition hover:text-white"
+            >
+              {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function LanguageColumn() {
+  return (
+    <div className="space-y-5">
+      <h4 className="text-xs font-semibold uppercase tracking-[0.2em] text-zinc-500">
+        Language
+      </h4>
+
+      <div className="relative w-full max-w-[190px]">
+        <select
+          aria-label="Select language"
+          defaultValue="en"
+          className="h-11 w-full cursor-pointer appearance-none rounded-full border border-white/10 bg-zinc-900 px-4 pr-11 text-sm font-medium text-zinc-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] outline-none transition"
+        >
+          <option value="en" className="bg-zinc-900 text-zinc-100">
+            English
+          </option>
+          <option value="id" className="bg-zinc-900 text-zinc-100">
+            Indonesia
+          </option>
+        </select>
+        <div className="pointer-events-none absolute inset-y-1 right-2 flex w-9 items-center justify-center rounded-full">
+          <ChevronDown className="h-4 w-4 text-zinc-400" />
+        </div>
+      </div>
+    </div>
   );
 }
