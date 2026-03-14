@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Mail, Phone, MapPin } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const platformLinks = [
@@ -57,8 +57,36 @@ export function Footer() {
           </div>
         </ScrollReveal>
 
-        <div className="mt-16 border-t border-white/5 pt-6 text-[13px] text-zinc-500">
+        <div className="mt-16 border-t border-white/5 pt-6 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-[13px] text-zinc-500">
           <p>&copy; {year} piowsee. Engineered in Indonesia.</p>
+          <div className="flex flex-col items-end md:flex-row md:items-center gap-2 md:gap-6">
+            <a
+              href="mailto:poc.helpteam@gmail.com"
+              className="flex items-center gap-2 hover:text-white transition text-right md:text-left"
+              title="Email"
+            >
+              <Mail className="w-5 h-5 text-zinc-500" />
+              <span className="hidden xs:inline">poc.helpteam@gmail.com</span>
+            </a>
+            <a
+              href="tel:+6285195563454"
+              className="flex items-center gap-2 hover:text-white transition text-right md:text-left"
+              title="Phone"
+            >
+              <Phone className="w-5 h-5 text-zinc-500" />
+              <span className="hidden xs:inline">+62 851 9556 3454</span>
+            </a>
+            <a
+              href="https://maps.google.com/?q=Sumedang, West Java"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-white transition text-right md:text-left"
+              title="Location"
+            >
+              <MapPin className="w-5 h-5 text-zinc-500" />
+              <span className="hidden xs:inline">Sumedang, West Java</span>
+            </a>
+          </div>
         </div>
       </div>
     </footer>
