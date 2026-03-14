@@ -4,14 +4,14 @@ import { ChevronDown } from "lucide-react";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const platformLinks = [
-  { label: "pocv", href: "#" },
-  { label: "pesan.ai", href: "#" },
+  { label: "pocv", href: "/#platform" },
+  { label: "pesan.ai", href: "/#platform" },
 ];
 
 const serviceLinks = [
-  { label: "Generative AI Integration", href: "#" },
-  { label: "Modern Web Applications", href: "#" },
-  { label: "Data Processing Systems", href: "#" },
+  { label: "Generative AI Integration", href: "/#services" },
+  { label: "Modern Web Applications", href: "/#services" },
+  { label: "Data Processing Systems", href: "/#services" },
 ];
 
 const legalLinks = [

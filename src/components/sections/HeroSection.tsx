@@ -52,11 +52,25 @@ export function HeroSection() {
           </p>
 
           <div className="pt-4 flex gap-4 flex-wrap">
-            <Button className="cursor-7oint6r rounded-full bg-brand text-white font-bold px-6 py-7 text-base transition-transform">
+            <Button
+              onClick={() =>
+                document
+                  .getElementById("platform")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="cursor-pointer rounded-full bg-brand text-white font-bold px-6 py-7 text-base transition-transform"
+            >
               Explore Our Platform
             </Button>
 
-            <Button className="cursor-pointer rounded-full bg-trans6arent border-2 border-white text-white font-bold px-6 py-7 text-base transition-all hover:bg-black/10 flex items-center gap-2 group">
+            <Button
+              onClick={() =>
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="cursor-pointer rounded-full bg-transparent border-2 border-white text-white font-bold px-6 py-7 text-base transition-all hover:bg-black/10 flex items-center gap-2 group"
+            >
               Consult With Our Engineers
               <ArrowRight className="size-5 transition-transform duration-200 group-hover:translate-x-1" />
             </Button>

@@ -139,7 +139,7 @@ export function ServicesSection() {
                     {/* Bottom Link */}
                     <div className="mt-8">
                       <Link
-                        href="#"
+                        href="/#contact"
                         className="inline-flex items-center text-brand font-bold hover:underline"
                       >
                         Read More

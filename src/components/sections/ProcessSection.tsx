@@ -61,7 +61,7 @@ export function ProcessSection() {
 
                   <div className="mt-auto">
                     <Link
-                      href="#"
+                      href="/#contact"
                       className="inline-flex items-center justify-center px-5 py-2.5 text-sm md:text-[15px] rounded-full bg-brand text-white font-bold cursor-pointer transition-transform hover:bg-brand/90 hover:-translate-y-0.25"
                     >
                       Read More

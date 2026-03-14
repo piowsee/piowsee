@@ -10,6 +10,7 @@ const navLinks = [
   { name: "Services", href: "/#services" },
   { name: "Platform", href: "/#platform" },
   { name: "Process", href: "/#process" },
+  { name: "Customers", href: "/#customers" },
   { name: "FAQ", href: "/#faq" },
   { name: "Contact", href: "/#contact" },
 ];
@@ -112,6 +113,11 @@ export function Header() {
         {/* Desktop CTA */}
         <div className="hidden lg:flex">
           <Button
+            onClick={() =>
+              document
+                .getElementById("contact")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
             className={`cursor-pointer rounded-full px-5 py-4 font-bold border-2 text-[15px] transition-all ${
               isScrolled
                 ? "border-brand text-brand bg-transparent hover:text-brand"
@@ -175,7 +181,10 @@ export function Header() {
               </Link>
             ))}
 
-            <Button className="rounded-full bg-brand text-white font-bold w-full max-w-[260px]">
+            <Button
+              onClick={(e) => handleMobileNavClick(e, "/#contact")}
+              className="rounded-full bg-brand text-white font-bold w-full max-w-[260px] cursor-pointer"
+            >
               Discuss Your Project
             </Button>
           </div>
