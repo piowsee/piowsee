@@ -108,7 +108,7 @@ export function ServicesSection() {
             }}
             className="w-full"
           >
-            <CarouselContent className="-ml-4">
+            <CarouselContent className="mb-1">
               {services.map((service) => (
                 <CarouselItem
                   key={service.id}
