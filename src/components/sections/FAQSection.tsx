@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const faqs = [
   {
@@ -72,28 +73,31 @@ export function FAQSection() {
                     }
                   >
                     <span
-                      className={`text-[17px] font-semibold leading-snug pr-5 transition-colors duration-150 ${
+                      className={cn(
+                        "text-[17px] font-semibold leading-snug pr-5 transition-colors duration-150",
                         openIndex === idx
                           ? "text-brand"
                           : "text-zinc-800 group-hover:text-brand"
-                      }`}
+                      )}
                     >
                       {faq.question}
                     </span>
                     <ChevronDown
-                      className={`w-5 h-5 flex-shrink-0 transition-all duration-300 ${
+                      className={cn(
+                        "w-5 h-5 flex-shrink-0 transition-all duration-300",
                         openIndex === idx
                           ? "rotate-180 text-brand"
                           : "text-zinc-400 group-hover:text-brand"
-                      }`}
+                      )}
                     />
                   </Button>
 
                   {/* Answer — grid-rows animation, no fixed max-height needed */}
                   <div
-                    className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
+                    className={cn(
+                      "grid transition-[grid-template-rows] duration-300 ease-in-out",
                       openIndex === idx ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
-                    }`}
+                    )}
                   >
                     <div className="overflow-hidden">
                       <p className="text-sm text-zinc-500 leading-relaxed pb-4">

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 type Testimonial = {
   name: string;
@@ -61,11 +62,13 @@ export function AvatarCarousel({
               key={tIdx}
               onClick={() => setActiveIndex(tIdx)}
               variant="ghost"
-              className={`absolute rounded-full overflow-hidden transition-all duration-500 ease-out cursor-pointer shrink-0 p-0 w-24 h-24 md:w-28 md:h-28 ${
+              className={cn(
+                "absolute rounded-full overflow-hidden transition-all duration-500 ease-out cursor-pointer shrink-0 p-0 w-24 h-24 md:w-28 md:h-28",
                 isActive
                   ? "ring-4 ring-brand ring-offset-4 ring-offset-zinc-50"
-                  : "grayscale"
-              } ${abs > 2 ? "pointer-events-none" : ""}`}
+                  : "grayscale",
+                abs > 2 && "pointer-events-none"
+              )}
               style={{
                 transform: `translateX(calc(${diff} * 115%)) translateY(-${translateY}px) scale(${scale})`,
                 opacity,

@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/carousel";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const services = [
   {
@@ -73,9 +74,10 @@ function CarouselDots() {
           key={index}
           variant="ghost"
           size="icon"
-          className={`cursor-pointer p-0 w-2.5 h-2.5 min-w-0 rounded-full transition-colors ${
+          className={cn(
+            "cursor-pointer p-0 w-2.5 h-2.5 min-w-0 rounded-full transition-colors",
             index === selectedIndex ? "bg-brand" : "bg-zinc-300"
-          }`}
+          )}
           onClick={() => api?.scrollTo(index)}
           aria-label={`Go to slide ${index + 1}`}
         />
@@ -121,7 +123,10 @@ export function ServicesSection() {
                       
                       {/* Icon Box */}
                       <div
-                        className={`w-14 h-14 rounded-xl ${service.iconColor} flex items-center justify-center text-white font-bold shadow-sm text-lg`}
+                        className={cn(
+                          "w-14 h-14 rounded-xl flex items-center justify-center text-white font-bold shadow-sm text-lg",
+                          service.iconColor
+                        )}
                       >
                         {service.title.split(" ")[1]
                           ? service.title.split(" ")[1][0]
