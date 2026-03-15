@@ -39,6 +39,8 @@ export function Header() {
       setIsScrolled(window.scrollY > 10);
     };
 
+    handleScroll(); // agar saat refresh di tengah halaman tetap floating
+
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
@@ -68,27 +70,27 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed top-4 left-1/2 z-50 w-[calc(100%-2rem)] max-w-7xl -translate-x-1/2 rounded-2xl transition-[background-color,backdrop-filter,box-shadow,padding] duration-300",
+        "fixed left-1/2 z-50 w-[calc(100%-2rem)] max-w-7xl -translate-x-1/2 rounded-full transition-all duration-300 ease-out",
         isScrolled
-          ? "bg-white/75 backdrop-blur-xl shadow-lg py-3"
-          : "bg-transparent backdrop-blur-0 shadow-none py-5"
+          ? "top-4 bg-white/60 backdrop-blur-xl shadow-lg py-3"
+          : "top-0 bg-transparent backdrop-blur-0 shadow-none py-5"
       )}
     >
       {/* Header container */}
-      <div className="mx-auto w-full max-w-350 px-6 md:px-10 lg:px-16 flex items-center justify-between">
+      <div className="mx-auto w-full max-w-full px-6 md:px-10 lg:px-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center cursor-pointer">
           <Image
-            src="/piowsee-logo.svg"
+            src="/logo-piowsee.webp"
             alt="piowsee logo"
             width={32}
             height={32}
-            className="h-8 w-8"
+            className="ml-3 h-8 w-8"
           />
 
           <span
             className={cn(
-              "ml-2 font-bold text-xl tracking-tighter",
+              "ml-3 font-bold text-xl tracking-tighter",
               isScrolled ? "text-black" : "text-white"
             )}
           >
@@ -125,7 +127,7 @@ export function Header() {
             className={cn(
               "cursor-pointer rounded-full px-5 py-4 font-bold border-2 text-[15px] transition-all",
               isScrolled
-                ? "border-brand text-brand bg-transparent hover:text-brand"
+                ? "border-brand text-brand bg-brand text-white hover:bg-brand/90 hover:text-white"
                 : "border-white text-black bg-white"
             )}
             variant="outline"
