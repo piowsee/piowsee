@@ -88,7 +88,7 @@ export function ServicesSection() {
   return (
     <section id="services" className="py-20 lg:py-28 bg-white overflow-hidden">
       {/* GLOBAL CONTAINER (align dengan header) */}
-      <div className="mx-auto w-full max-w-[1400px] px-6 md:px-10 lg:px-16">
+      <div className="mx-auto w-full max-w-350 px-6 md:px-10 lg:px-16">
         <ScrollReveal className="mb-14 max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4">
             Why <span className="text-brand">piowsee?</span>
@@ -133,7 +133,7 @@ export function ServicesSection() {
                         <h3 className="text-xl md:text-2xl font-bold text-black tracking-tight">
                           {service.title}
                         </h3>
-                        <p className="text-sm md:text-base text-gray-600 leading-relaxed min-h-[60px]">
+                        <p className="text-sm md:text-base text-gray-600 leading-relaxed min-h-15">
                           {service.description}
                         </p>
                       </div>
@@ -156,8 +156,8 @@ export function ServicesSection() {
 
             {/* Navigation Buttons */}
             <div className="hidden md:block">
-              <CarouselPrevious className="-left-12 bg-white hover:bg-zinc-100 hover:text-brand border-zinc-200" />
-              <CarouselNext className="-right-12 bg-white hover:bg-zinc-100 hover:text-brand border-zinc-200" />
+              <CarouselPrevious className="-left-12 cursor-pointer bg-white hover:bg-zinc-100 hover:text-brand border-zinc-200" />
+              <CarouselNext className="-right-12 cursor-pointer bg-white hover:bg-zinc-100 hover:text-brand border-zinc-200" />
             </div>
 
             {/* Dots */}
