@@ -34,7 +34,7 @@ export function Footer() {
             <div className="max-w-sm space-y-5">
               <Link href="/" className="inline-flex items-center gap-2.5">
                 <Image
-                  src="/piowsee-logo.svg"
+                  src="/logo-piowsee.webp"
                   alt="piowsee logo"
                   width={32}
                   height={32}
@@ -69,9 +69,11 @@ export function Footer() {
               <span className="hidden xs:inline">poc.helpteam@gmail.com</span>
             </a>
             <a
-              href="tel:+6285195563454"
+              href="https://wa.me/6285195563454"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center gap-2 hover:text-white transition text-right md:text-left"
-              title="Phone"
+              title="WhatsApp"
             >
               <Phone className="w-5 h-5 text-zinc-500" />
               <span className="hidden xs:inline">+62 851 9556 3454</span>
