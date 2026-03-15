@@ -18,7 +18,7 @@ const testimonials: Testimonial[] = [
     role: "CTO",
     company: "NovaTech Solutions",
     quote:
-      "Piowsee transformed our legacy system into an AI-powered platform in just three months. The team's technical depth and communication were outstanding throughout the entire engagement.",
+      "piowsee transformed our legacy system into an AI-powered platform in just three months. The team's technical depth and communication were outstanding throughout the entire engagement.",
     avatar:
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=face",
   },
@@ -45,7 +45,7 @@ const testimonials: Testimonial[] = [
     role: "VP of Engineering",
     company: "DataSphere",
     quote:
-      "Piowsee's approach to architecture is world-class. They didn't just build what we asked for — they challenged our assumptions and delivered something far better than we imagined.",
+      "piowsee's approach to architecture is world-class. They didn't just build what we asked for — they challenged our assumptions and delivered something far better than we imagined.",
     avatar:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
   },
@@ -63,7 +63,7 @@ const testimonials: Testimonial[] = [
     role: "Co-Founder",
     company: "HealthPulse",
     quote:
-      "We needed a HIPAA-compliant AI chatbot built in 8 weeks. Piowsee delivered in 6. Their combination of speed, quality, and security awareness is rare in this industry.",
+      "We needed a HIPAA-compliant AI chatbot built in 8 weeks. piowsee delivered in 6. Their combination of speed, quality, and security awareness is rare in this industry.",
     avatar:
       "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face",
   },
@@ -72,7 +72,7 @@ const testimonials: Testimonial[] = [
     role: "Managing Director",
     company: "Nexus Digital",
     quote:
-      "Piowsee helped us automate 70% of our manual workflows with custom software. The ROI was visible within the first month. We've already started planning our next project together.",
+      "piowsee helped us automate 70% of our manual workflows with custom software. The ROI was visible within the first month. We've already started planning our next project together.",
     avatar:
       "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
   },

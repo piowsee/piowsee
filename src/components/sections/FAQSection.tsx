@@ -6,9 +6,9 @@ import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const faqs = [
   {
-    question: "What services does Piowsee offer?",
+    question: "What services does piowsee offer?",
     answer:
-      "Piowsee provides end-to-end software development services including AI-integrated applications, modern web and mobile platforms, custom data systems, and ongoing technical consultations tailored to your business needs.",
+      "piowsee provides end-to-end software development services including AI-integrated applications, modern web and mobile platforms, custom data systems, and ongoing technical consultations tailored to your business needs.",
   },
   {
     question: "How long does a typical project take?",
@@ -26,7 +26,7 @@ const faqs = [
       "Absolutely. We specialize in retrofitting AI capabilities into existing platforms — from intelligent chatbots and recommendation engines to automated data pipelines and decision-support tools.",
   },
   {
-    question: "How do I get started with Piowsee?",
+    question: "How do I get started with piowsee?",
     answer:
       "Simply reach out via our contact form or WhatsApp. We'll schedule a free initial consultation to understand your goals, then provide a tailored proposal with timeline and cost estimates — no commitment required.",
   },
@@ -50,7 +50,7 @@ export function FAQSection() {
           </h2>
           <p className="text-zinc-500 text-base md:text-lg max-w-2xl mx-auto">
             Here are answers to the most common things people ask about working
-            with Piowsee.
+            with piowsee.
           </p>
         </ScrollReveal>
 
