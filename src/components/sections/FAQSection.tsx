@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { ScrollReveal } from "@/components/ScrollReveal";
+import { Button } from "@/components/ui/button";
 
 const faqs = [
   {
@@ -63,8 +64,9 @@ export function FAQSection() {
               {faqs.map((faq, idx) => (
                 <div key={idx}>
                   {/* Question button */}
-                  <button
-                    className="w-full flex items-center justify-between py-5 text-left group cursor-pointer"
+                  <Button
+                    variant="ghost"
+                    className="w-full h-auto p-0 py-5 justify-between text-left group cursor-pointer"
                     onClick={() =>
                       setOpenIndex(openIndex === idx ? null : idx)
                     }
@@ -85,7 +87,7 @@ export function FAQSection() {
                           : "text-zinc-400 group-hover:text-brand"
                       }`}
                     />
-                  </button>
+                  </Button>
 
                   {/* Answer — grid-rows animation, no fixed max-height needed */}
                   <div

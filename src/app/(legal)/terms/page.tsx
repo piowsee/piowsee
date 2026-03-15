@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Header } from "@/components/sections/Header";
-import { Footer } from "@/components/sections/Footer";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
 const sections = [
   { id: "acceptance", label: "Acceptance of Terms" },

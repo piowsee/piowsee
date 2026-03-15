@@ -130,8 +130,10 @@ export function Header() {
         </div>
 
         {/* Hamburger Button */}
-        <button
+        <Button
           ref={buttonRef}
+          variant="ghost"
+          size="icon"
           onClick={() => setMenuOpen(!menuOpen)}
           className={`lg:hidden cursor-pointer ${
             isScrolled ? "text-black" : "text-white"
@@ -158,7 +160,7 @@ export function Header() {
               </>
             )}
           </svg>
-        </button>
+        </Button>
       </div>
 
       {/* Mobile Menu */}

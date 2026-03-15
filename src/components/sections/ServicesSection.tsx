@@ -11,7 +11,8 @@ import {
   CarouselPrevious,
   useCarousel,
 } from "@/components/ui/carousel";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { ScrollReveal } from "@/components/ScrollReveal";
+import { Button } from "@/components/ui/button";
 
 const services = [
   {
@@ -47,30 +48,32 @@ const services = [
 function CarouselDots() {
   const { api } = useCarousel();
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+  const scrollSnaps = api?.scrollSnapList() ?? [];
 
   useEffect(() => {
     if (!api) return;
 
-    setScrollSnaps(api.scrollSnapList());
-    setSelectedIndex(api.selectedScrollSnap());
-
-    api.on("select", () => {
+    const onSelect = () => {
       setSelectedIndex(api.selectedScrollSnap());
-    });
+    };
 
-    api.on("reInit", () => {
-      setScrollSnaps(api.scrollSnapList());
-      setSelectedIndex(api.selectedScrollSnap());
-    });
+    api.on("select", onSelect);
+    api.on("reInit", onSelect);
+
+    return () => {
+      api.off("select", onSelect);
+      api.off("reInit", onSelect);
+    };
   }, [api]);
 
   return (
     <div className="flex justify-center gap-2 mt-10">
       {scrollSnaps.map((_, index) => (
-        <button
+        <Button
           key={index}
-          className={`cursor-pointer w-2.5 h-2.5 rounded-full transition-colors ${
+          variant="ghost"
+          size="icon"
+          className={`cursor-pointer p-0 w-2.5 h-2.5 min-w-0 rounded-full transition-colors ${
             index === selectedIndex ? "bg-brand" : "bg-zinc-300"
           }`}
           onClick={() => api?.scrollTo(index)}
