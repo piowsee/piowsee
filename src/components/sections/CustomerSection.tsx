@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { AvatarCarousel } from "@/components/ui/AvatarCarousel";
+import { ScrollReveal } from "@/components/ScrollReveal";
+import { AvatarCarousel } from "@/components/AvatarCarousel";
 
 type Testimonial = {
   name: string;

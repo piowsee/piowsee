@@ -7,12 +7,12 @@ import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { name: "Home", href: "/#home" },
-  { name: "Services", href: "/#services" },
+//   { name: "Services", href: "/#services" },
   { name: "Platform", href: "/#platform" },
-  { name: "Process", href: "/#process" },
-  { name: "Customers", href: "/#customers" },
+//   { name: "Process", href: "/#process" },
+//   { name: "Customers", href: "/#customers" },
   { name: "FAQ", href: "/#faq" },
-  { name: "Contact", href: "/#contact" },
+//   { name: "Contact", href: "/#contact" },
 ];
 
 export function Header() {
@@ -130,8 +130,10 @@ export function Header() {
         </div>
 
         {/* Hamburger Button */}
-        <button
+        <Button
           ref={buttonRef}
+          variant="ghost"
+          size="icon"
           onClick={() => setMenuOpen(!menuOpen)}
           className={`lg:hidden cursor-pointer ${
             isScrolled ? "text-black" : "text-white"
@@ -158,7 +160,7 @@ export function Header() {
               </>
             )}
           </svg>
-        </button>
+        </Button>
       </div>
 
       {/* Mobile Menu */}

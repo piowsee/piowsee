@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Header } from "@/components/sections/Header";
-import { Footer } from "@/components/sections/Footer";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
 const sections = [
   { id: "introduction", label: "Introduction" },
@@ -103,13 +103,13 @@ export default function PrivacyPolicy() {
           <div className="prose prose-zinc lg:prose-lg max-w-none">
             <h2
               id="introduction"
-              className="scroll-mt-[100px] text-2xl font-bold text-zinc-900 mt-0 mb-4"
+              className="scroll-mt-25 text-2xl font-bold text-zinc-900 mt-0 mb-4"
             >
               1. Introduction
             </h2>
 
             <p className="text-zinc-600 mb-6 leading-relaxed">
-              Welcome to piowsee ("we," "our," or "us"). We are an Indonesian
+              Welcome to piowsee (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). We are an Indonesian
               software house specializing in intelligent digital products,
               including but not limited to AI integrations, custom web
               applications, and data systems like pocv and Pesan AI. We respect

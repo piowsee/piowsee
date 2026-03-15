@@ -11,7 +11,8 @@ import {
   CarouselPrevious,
   useCarousel,
 } from "@/components/ui/carousel";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { ScrollReveal } from "@/components/ScrollReveal";
+import { Button } from "@/components/ui/button";
 
 const services = [
   {
@@ -47,30 +48,32 @@ const services = [
 function CarouselDots() {
   const { api } = useCarousel();
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+  const scrollSnaps = api?.scrollSnapList() ?? [];
 
   useEffect(() => {
     if (!api) return;
 
-    setScrollSnaps(api.scrollSnapList());
-    setSelectedIndex(api.selectedScrollSnap());
-
-    api.on("select", () => {
+    const onSelect = () => {
       setSelectedIndex(api.selectedScrollSnap());
-    });
+    };
 
-    api.on("reInit", () => {
-      setScrollSnaps(api.scrollSnapList());
-      setSelectedIndex(api.selectedScrollSnap());
-    });
+    api.on("select", onSelect);
+    api.on("reInit", onSelect);
+
+    return () => {
+      api.off("select", onSelect);
+      api.off("reInit", onSelect);
+    };
   }, [api]);
 
   return (
     <div className="flex justify-center gap-2 mt-10">
       {scrollSnaps.map((_, index) => (
-        <button
+        <Button
           key={index}
-          className={`cursor-pointer w-2.5 h-2.5 rounded-full transition-colors ${
+          variant="ghost"
+          size="icon"
+          className={`cursor-pointer p-0 w-2.5 h-2.5 min-w-0 rounded-full transition-colors ${
             index === selectedIndex ? "bg-brand" : "bg-zinc-300"
           }`}
           onClick={() => api?.scrollTo(index)}
@@ -85,7 +88,7 @@ export function ServicesSection() {
   return (
     <section id="services" className="py-20 lg:py-28 bg-white overflow-hidden">
       {/* GLOBAL CONTAINER (align dengan header) */}
-      <div className="mx-auto w-full max-w-[1400px] px-6 md:px-10 lg:px-16">
+      <div className="mx-auto w-full max-w-350 px-6 md:px-10 lg:px-16">
         <ScrollReveal className="mb-14 max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4">
             Why <span className="text-brand">piowsee?</span>
@@ -130,7 +133,7 @@ export function ServicesSection() {
                         <h3 className="text-xl md:text-2xl font-bold text-black tracking-tight">
                           {service.title}
                         </h3>
-                        <p className="text-sm md:text-base text-gray-600 leading-relaxed min-h-[60px]">
+                        <p className="text-sm md:text-base text-gray-600 leading-relaxed min-h-15">
                           {service.description}
                         </p>
                       </div>
@@ -153,8 +156,8 @@ export function ServicesSection() {
 
             {/* Navigation Buttons */}
             <div className="hidden md:block">
-              <CarouselPrevious className="-left-12 bg-white hover:bg-zinc-100 hover:text-brand border-zinc-200" />
-              <CarouselNext className="-right-12 bg-white hover:bg-zinc-100 hover:text-brand border-zinc-200" />
+              <CarouselPrevious className="-left-12 cursor-pointer bg-white hover:bg-zinc-100 hover:text-brand border-zinc-200" />
+              <CarouselNext className="-right-12 cursor-pointer bg-white hover:bg-zinc-100 hover:text-brand border-zinc-200" />
             </div>
 
             {/* Dots */}

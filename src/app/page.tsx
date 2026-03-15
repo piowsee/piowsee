@@ -1,4 +1,4 @@
-import { Header } from "@/components/sections/Header";
+import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { PlatformSection } from "@/components/sections/PlatformSection";
@@ -6,7 +6,7 @@ import { ProcessSection } from "@/components/sections/ProcessSection";
 import { CustomerSection } from "@/components/sections/CustomerSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { ContactSection } from "@/components/sections/ContactSection";
-import { Footer } from "@/components/sections/Footer";
+import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (

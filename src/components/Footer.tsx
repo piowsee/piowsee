@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown, Mail, Phone, MapPin } from "lucide-react";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { ScrollReveal } from "@/components/ScrollReveal";
 
 const platformLinks = [
   { label: "pocv", href: "/#platform" },
@@ -28,7 +28,7 @@ export function Footer() {
       className="border-t border-white/5 bg-[#050505] text-white"
     >
       {/* GLOBAL CONTAINER */}
-      <div className="mx-auto w-full max-w-[1400px] px-6 md:px-10 lg:px-16 py-20">
+      <div className="mx-auto w-full max-w-350 px-6 md:px-10 lg:px-16 py-20">
         <ScrollReveal>
           <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-[1.35fr_0.8fr_1.1fr_0.8fr_0.95fr] lg:gap-8 xl:gap-12">
             <div className="max-w-sm space-y-5">
@@ -131,7 +131,8 @@ function LanguageColumn() {
         Language
       </h4>
 
-      <div className="relative w-full max-w-[190px]">
+      {/* TODO: use shadcn/ui select */}
+      <div className="relative w-full max-w-47.5">
         <select
           aria-label="Select language"
           defaultValue="en"

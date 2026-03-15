@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import { Check } from "lucide-react";
-import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { ScrollReveal } from "@/components/ScrollReveal";
+import { Button } from "@/components/ui/button";
 
 const platforms = [
   {
@@ -63,10 +64,11 @@ export function PlatformSection() {
           delay={100}
         >
           {platforms.map((platform, index) => (
-            <button
+            <Button
               key={platform.id}
               onClick={() => setActiveTab(index)}
-              className={`cursor-pointer relative px-5 py-2.5 rounded-full text-[13px] md:text-sm font-bold transition-all duration-300 border ${
+              variant="outline"
+              className={`cursor-pointer relative rounded-full h-auto px-5 py-2.5 text-[13px] md:text-sm font-bold transition-all duration-300 border ${
                 index === activeTab
                   ? "border-zinc-900 text-black bg-white shadow-sm"
                   : "border-zinc-300 text-zinc-500 hover:border-zinc-400 hover:text-zinc-800 bg-transparent"
@@ -79,7 +81,7 @@ export function PlatformSection() {
                   {platform.badge}
                 </span>
               )}
-            </button>
+            </Button>
           ))}
         </ScrollReveal>
 
