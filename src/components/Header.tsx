@@ -66,14 +66,14 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-4 left-1/2 z-50 w-[calc(100%-2rem)] max-w-7xl -translate-x-1/2 rounded-2xl transition-[background-color,backdrop-filter,box-shadow,padding] duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-white/75 backdrop-blur-xl shadow-lg py-3"
-          : "bg-transparent backdrop-blur-0 shadow-none py-5"
+          ? "bg-white/95 backdrop-blur-md shadow-sm py-4"
+          : "bg-transparent py-5"
       }`}
     >
       {/* Header container */}
-      <div className="mx-auto w-full max-w-350 px-6 md:px-10 lg:px-16 flex items-center justify-between">
+      <div className="mx-auto w-full max-w-[1400px] px-6 md:px-10 lg:px-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center cursor-pointer">
           <Image
@@ -167,7 +167,7 @@ export function Header() {
       <div
         ref={menuRef}
         className={`lg:hidden transition-all duration-300 overflow-hidden ${
-          menuOpen ? "max-h-125" : "max-h-0"
+          menuOpen ? "max-h-[500px]" : "max-h-0"
         }`}
       >
         <div className="w-full mt-4 bg-white border-t border-gray-200">
@@ -185,7 +185,7 @@ export function Header() {
 
             <Button
               onClick={(e) => handleMobileNavClick(e, "/#contact")}
-              className="rounded-full bg-brand text-white font-bold w-full max-w-65 cursor-pointer"
+              className="rounded-full bg-brand text-white font-bold w-full max-w-[260px] cursor-pointer"
             >
               Discuss Your Project
             </Button>
