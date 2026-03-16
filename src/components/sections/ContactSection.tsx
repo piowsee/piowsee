@@ -203,56 +203,56 @@ export function ContactSection() {
               </p>
             </div>
 
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+            <div className="flex flex-row gap-4 sm:gap-6 lg:flex-col lg:space-y-6">
+              <div className="flex flex-col items-center gap-2 text-center flex-1 min-w-0 lg:flex-row lg:items-start lg:gap-4 lg:text-left">
+                <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0">
                   <Mail className="w-5 h-5 text-brand" />
                 </div>
-                <div>
-                  <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1">
+                <div className="min-w-0">
+                  <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1 hidden lg:block">
                     Email
                   </p>
                   <a
                     href="mailto:poc.helpteam@gmail.com"
-                    className="text-zinc-900 font-medium hover:text-brand transition"
+                    className="text-zinc-900 font-medium hover:text-brand transition text-xs lg:text-sm block truncate"
                   >
                     poc.helpteam@gmail.com
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <div className="flex flex-col items-center gap-2 text-center flex-1 min-w-0 lg:flex-row lg:items-start lg:gap-4 lg:text-left">
+                <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0">
                   <Phone className="w-5 h-5 text-brand" />
                 </div>
-                <div>
-                  <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1">
+                <div className="min-w-0">
+                  <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1 hidden lg:block">
                     Phone
                   </p>
                   <a
                     href="https://wa.me/6285195563454"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-zinc-900 font-medium hover:text-brand transition"
+                    className="text-zinc-900 font-medium hover:text-brand transition text-xs lg:text-sm block truncate"
                   >
                     +62 851 9556 3454
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <div className="flex flex-col items-center gap-2 text-center flex-1 min-w-0 lg:flex-row lg:items-start lg:gap-4 lg:text-left">
+                <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-5 h-5 text-brand" />
                 </div>
-                <div>
-                  <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1">
+                <div className="min-w-0">
+                  <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1 hidden lg:block">
                     Location
                   </p>
                   <a
                     href="https://www.google.com/maps/search/?api=1&query=Sumedang%2C+West+Java"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-zinc-900 font-medium hover:text-brand transition"
+                    className="text-zinc-900 font-medium hover:text-brand transition text-xs lg:text-sm block truncate"
                   >
                     Sumedang, West Java
                   </a>

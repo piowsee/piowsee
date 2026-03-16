@@ -63,7 +63,7 @@ export function AvatarCarousel({
               onClick={() => setActiveIndex(tIdx)}
               variant="ghost"
               className={cn(
-                "absolute rounded-full overflow-hidden transition-all duration-500 ease-out cursor-pointer shrink-0 p-0 w-24 h-24 md:w-28 md:h-28",
+                "absolute rounded-full overflow-hidden transition-all duration-500 ease-out cursor-pointer shrink-0 p-0 w-20 h-20 md:w-28 md:h-28",
                 isActive
                   ? "ring-4 ring-brand ring-offset-4 ring-offset-zinc-50"
                   : "grayscale",

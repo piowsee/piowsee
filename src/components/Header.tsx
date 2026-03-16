@@ -72,7 +72,7 @@ export function Header() {
       className={cn(
         "fixed left-1/2 z-50 w-[calc(100%-2rem)] max-w-7xl -translate-x-1/2 rounded-full transition-all duration-300 ease-out",
         isScrolled
-          ? "top-4 bg-white/60 backdrop-blur-xl shadow-lg py-3"
+          ? "top-4 bg-white/80 backdrop-blur-xl shadow-lg py-3"
           : "top-0 bg-transparent backdrop-blur-0 shadow-none py-5"
       )}
     >
@@ -144,7 +144,9 @@ export function Header() {
           onClick={() => setMenuOpen(!menuOpen)}
           className={cn(
             "lg:hidden cursor-pointer",
-            isScrolled ? "text-black" : "text-white"
+            isScrolled
+              ? "text-black"
+              : "text-white"
           )}
         >
           <svg
@@ -171,22 +173,24 @@ export function Header() {
         </Button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu — floats below the header pill */}
       <div
         ref={menuRef}
         className={cn(
-          "lg:hidden transition-all duration-300 overflow-hidden",
-          menuOpen ? "max-h-125" : "max-h-0"
+          "lg:hidden absolute top-full left-0 right-0 mt-3 transition-all duration-300 ease-out",
+          menuOpen
+            ? "opacity-100 pointer-events-auto translate-y-0"
+            : "opacity-0 pointer-events-none -translate-y-2"
         )}
       >
-        <div className="w-full mt-4 bg-white border-t border-gray-200">
-          <div className="px-6 py-8 flex flex-col gap-7 items-center text-center">
+        <div className="bg-white/95 rounded-2xl shadow-xl border border-zinc-100 overflow-hidden">
+          <div className="px-6 py-8 flex flex-col gap-6 items-center text-center">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleMobileNavClick(e, link.href)}
-                className="text-gray-900 text-[17px] font-medium"
+                className="text-gray-900 text-[17px] font-medium hover:text-brand transition-colors"
               >
                 {link.name}
               </Link>
