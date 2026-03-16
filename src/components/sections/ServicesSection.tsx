@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -46,42 +46,74 @@ const services = [
   },
 ];
 
-function CarouselDots() {
+function CarouselControls() {
   const { api } = useCarousel();
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
   const scrollSnaps = api?.scrollSnapList() ?? [];
 
   useEffect(() => {
     if (!api) return;
 
-    const onSelect = () => {
+    const update = () => {
       setSelectedIndex(api.selectedScrollSnap());
+      setCanScrollPrev(api.canScrollPrev());
+      setCanScrollNext(api.canScrollNext());
     };
 
-    api.on("select", onSelect);
-    api.on("reInit", onSelect);
+    api.on("select", update);
+    api.on("reInit", update);
+    update();
 
     return () => {
-      api.off("select", onSelect);
-      api.off("reInit", onSelect);
+      api.off("select", update);
+      api.off("reInit", update);
     };
   }, [api]);
 
   return (
-    <div className="flex justify-center gap-2 mt-10">
-      {scrollSnaps.map((_, index) => (
-        <Button
-          key={index}
-          variant="ghost"
-          size="icon"
-          className={cn(
-            "cursor-pointer p-0 w-2.5 h-2.5 min-w-0 rounded-full transition-colors",
-            index === selectedIndex ? "bg-brand" : "bg-zinc-300"
-          )}
-          onClick={() => api?.scrollTo(index)}
-          aria-label={`Go to slide ${index + 1}`}
-        />
-      ))}
+    <div className="flex items-center justify-center gap-3 mt-10">
+      {/* Prev — mobile & tablet only (hidden on lg where absolute buttons are shown) */}
+      <Button
+        variant="outline"
+        size="icon"
+        className="lg:hidden w-9 h-9 rounded-full border-zinc-200 bg-white hover:bg-zinc-100 hover:text-brand disabled:opacity-30 cursor-pointer"
+        disabled={!canScrollPrev}
+        onClick={() => api?.scrollPrev()}
+        aria-label="Previous slide"
+      >
+        <ChevronLeft className="w-4 h-4" />
+      </Button>
+
+      {/* Dots */}
+      <div className="flex gap-2">
+        {scrollSnaps.map((_, index) => (
+          <Button
+            key={index}
+            variant="ghost"
+            size="icon"
+            className={cn(
+              "cursor-pointer p-0 w-2.5 h-2.5 min-w-0 rounded-full transition-colors",
+              index === selectedIndex ? "bg-brand" : "bg-zinc-300"
+            )}
+            onClick={() => api?.scrollTo(index)}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* Next — mobile & tablet only */}
+      <Button
+        variant="outline"
+        size="icon"
+        className="lg:hidden w-9 h-9 rounded-full border-zinc-200 bg-white hover:bg-zinc-100 hover:text-brand disabled:opacity-30 cursor-pointer"
+        disabled={!canScrollNext}
+        onClick={() => api?.scrollNext()}
+        aria-label="Next slide"
+      >
+        <ChevronRight className="w-4 h-4" />
+      </Button>
     </div>
   );
 }
@@ -159,14 +191,14 @@ export function ServicesSection() {
               ))}
             </CarouselContent>
 
-            {/* Navigation Buttons */}
-            <div className="hidden md:block">
+            {/* Navigation Buttons — desktop only (lg+), safe outside gutter */}
+            <div className="hidden lg:block">
               <CarouselPrevious className="-left-12 cursor-pointer bg-white hover:bg-zinc-100 hover:text-brand border-zinc-200" />
               <CarouselNext className="-right-12 cursor-pointer bg-white hover:bg-zinc-100 hover:text-brand border-zinc-200" />
             </div>
 
-            {/* Dots */}
-            <CarouselDots />
+            {/* Dots + mobile/tablet arrows */}
+            <CarouselControls />
           </Carousel>
         </ScrollReveal>
       </div>

@@ -67,14 +67,14 @@ export function FAQSection() {
                   {/* Question button */}
                   <Button
                     variant="ghost"
-                    className="w-full h-auto p-0 py-5 justify-between text-left group cursor-pointer"
+                    className="w-full h-auto p-0 py-5 justify-between text-left group cursor-pointer whitespace-normal"
                     onClick={() =>
                       setOpenIndex(openIndex === idx ? null : idx)
                     }
                   >
                     <span
                       className={cn(
-                        "text-[17px] font-semibold leading-snug pr-5 transition-colors duration-150",
+                        "text-[15px] md:text-[17px] font-semibold leading-snug pr-4 min-w-0 flex-1 transition-colors duration-150",
                         openIndex === idx
                           ? "text-brand"
                           : "text-zinc-800 group-hover:text-brand"
