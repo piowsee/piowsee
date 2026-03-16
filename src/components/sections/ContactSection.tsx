@@ -15,7 +15,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import { cn } from "@/lib/utils";
 
 type FormData = {
   name: string;
@@ -203,56 +202,56 @@ export function ContactSection() {
               </p>
             </div>
 
-            <div className="flex flex-row gap-4 sm:gap-6 lg:flex-col lg:space-y-6">
-              <div className="flex flex-col items-center gap-2 text-center flex-1 min-w-0 lg:flex-row lg:items-start lg:gap-4 lg:text-left">
-                <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0">
+            <div className="space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Mail className="w-5 h-5 text-brand" />
                 </div>
-                <div className="min-w-0">
-                  <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1 hidden lg:block">
+                <div>
+                  <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1">
                     Email
                   </p>
                   <a
                     href="mailto:poc.helpteam@gmail.com"
-                    className="text-zinc-900 font-medium hover:text-brand transition text-xs lg:text-sm block truncate"
+                    className="text-zinc-900 font-medium hover:text-brand transition"
                   >
                     poc.helpteam@gmail.com
                   </a>
                 </div>
               </div>
 
-              <div className="flex flex-col items-center gap-2 text-center flex-1 min-w-0 lg:flex-row lg:items-start lg:gap-4 lg:text-left">
-                <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <Phone className="w-5 h-5 text-brand" />
                 </div>
-                <div className="min-w-0">
-                  <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1 hidden lg:block">
+                <div>
+                  <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1">
                     Phone
                   </p>
                   <a
                     href="https://wa.me/6285195563454"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-zinc-900 font-medium hover:text-brand transition text-xs lg:text-sm block truncate"
+                    className="text-zinc-900 font-medium hover:text-brand transition"
                   >
                     +62 851 9556 3454
                   </a>
                 </div>
               </div>
 
-              <div className="flex flex-col items-center gap-2 text-center flex-1 min-w-0 lg:flex-row lg:items-start lg:gap-4 lg:text-left">
-                <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0">
+              <div className="flex items-start gap-4">
+                <div className="w-10 h-10 rounded-full bg-brand/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <MapPin className="w-5 h-5 text-brand" />
                 </div>
-                <div className="min-w-0">
-                  <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1 hidden lg:block">
+                <div>
+                  <p className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1">
                     Location
                   </p>
                   <a
                     href="https://www.google.com/maps/search/?api=1&query=Sumedang%2C+West+Java"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-zinc-900 font-medium hover:text-brand transition text-xs lg:text-sm block truncate"
+                    className="text-zinc-900 font-medium hover:text-brand transition"
                   >
                     Sumedang, West Java
                   </a>
@@ -274,10 +273,7 @@ export function ContactSection() {
                   id="name"
                   type="text"
                   placeholder="John Doe"
-                  className={cn(
-                    "w-full bg-zinc-50 border px-4 py-6 text-zinc-900 placeholder:text-zinc-400 transition-all font-medium rounded-lg",
-                    inputBorder("name")
-                  )}
+                  className={`w-full bg-zinc-50 border px-4 py-6 text-zinc-900 placeholder:text-zinc-400 transition-all font-medium rounded-lg ${inputBorder("name")}`}
                   value={formData.name}
                   onChange={(e) => handleChange("name", e.target.value)}
                   onBlur={() => handleBlur("name")}
@@ -298,10 +294,7 @@ export function ContactSection() {
                   id="email"
                   type="email"
                   placeholder="you@email.com"
-                  className={cn(
-                    "w-full bg-zinc-50 border px-4 py-6 text-zinc-900 placeholder:text-zinc-400 transition-all font-medium rounded-lg",
-                    inputBorder("email")
-                  )}
+                  className={`w-full bg-zinc-50 border px-4 py-6 text-zinc-900 placeholder:text-zinc-400 transition-all font-medium rounded-lg ${inputBorder("email")}`}
                   value={formData.email}
                   onChange={(e) => handleChange("email", e.target.value)}
                   onBlur={() => handleBlur("email")}
@@ -325,10 +318,7 @@ export function ContactSection() {
                   id="whatsapp"
                   type="tel"
                   placeholder="e.g. 6281234567890"
-                  className={cn(
-                    "w-full bg-zinc-50 border px-4 py-6 text-zinc-900 placeholder:text-zinc-400 transition-all font-medium rounded-lg",
-                    inputBorder("whatsapp")
-                  )}
+                  className={`w-full bg-zinc-50 border px-4 py-6 text-zinc-900 placeholder:text-zinc-400 transition-all font-medium rounded-lg ${inputBorder("whatsapp")}`}
                   value={formData.whatsapp}
                   onChange={(e) => handleChange("whatsapp", e.target.value)}
                   onBlur={() => handleBlur("whatsapp")}
@@ -351,12 +341,11 @@ export function ContactSection() {
                 <textarea
                   id="message"
                   placeholder="Tell us about your project requirements..."
-                  className={cn(
-                    "w-full min-h-[120px] bg-zinc-50 border px-4 py-3 text-zinc-900 placeholder:text-zinc-400 outline-none focus:ring-2 transition-all font-medium rounded-lg resize-none text-sm",
+                  className={`w-full min-h-[120px] bg-zinc-50 border px-4 py-3 text-zinc-900 placeholder:text-zinc-400 outline-none focus:ring-2 transition-all font-medium rounded-lg resize-none text-sm ${
                     errors.message && touched.message
                       ? "border-red-400 focus:ring-red-200"
                       : "border-zinc-200 focus:ring-brand/20 focus:border-brand"
-                  )}
+                  }`}
                   value={formData.message}
                   onChange={(e) => handleChange("message", e.target.value)}
                   onBlur={() => handleBlur("message")}
@@ -372,10 +361,7 @@ export function ContactSection() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className={cn(
-                  "w-full text-white rounded-lg py-6 text-base font-bold shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer disabled:cursor-not-allowed",
-                  buttonClass[currentState]
-                )}
+                className={`w-full text-white rounded-lg py-6 text-base font-bold shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer disabled:cursor-not-allowed ${buttonClass[currentState]}`}
               >
                 {buttonContent[currentState]}
               </Button>
