@@ -24,6 +24,12 @@ export function ScrollReveal({
     const element = ref.current;
     if (!element) return;
 
+    const rect = element.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom >= 0) {
+      setIsVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
