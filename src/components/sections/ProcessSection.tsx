@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import Image from "next/image";
 
 const promos = [
 {
@@ -46,10 +46,11 @@ export function ProcessSection() {
             <ScrollReveal key={promo.id} delay={promo.id * 100}>
               <div className="flex flex-col">
                 <div className="rounded-[28px] overflow-hidden mb-5 aspect-[4/3] bg-zinc-100 relative">
-                  <img
+                  <Image
                     src={promo.image}
                     alt={promo.title}
-                    className="w-full h-full object-cover transition-transform duration-700"
+                    className="object-cover transition-transform duration-700"
+                    fill
                   />
                 </div>
 

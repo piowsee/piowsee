@@ -5,6 +5,7 @@ import { ChevronDown } from "lucide-react";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const faqs = [
   {
@@ -118,10 +119,11 @@ export function FAQSection() {
           {/* Right — Truly fixed size, never resizes */}
           <ScrollReveal delay={220}>
             <div className="rounded-xl overflow-hidden h-[450px] bg-zinc-100 relative shadow-lg">
-              <img
+              <Image
                 src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=2070&auto=format&fit=crop"
                 alt="Team collaboration"
-                className="absolute inset-0 w-full h-full object-cover"
+                className="object-cover"
+                fill
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
             </div>

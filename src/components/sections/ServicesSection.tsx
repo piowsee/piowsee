@@ -14,6 +14,7 @@ import {
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const services = [
   {
@@ -149,11 +150,13 @@ export function ServicesSection() {
                 >
                   <div className="h-full bg-zinc-50 rounded-[28px] p-6 lg:p-8 flex flex-col justify-between border border-zinc-100 transition hover:shadow-md">
                     <div className="space-y-5">
-                      <div className="w-14 h-14 flex items-center justify-center select-none">
-                        <img
+                      <div className="w-14 h-14 flex items-center justify-center select-none relative">
+                        <Image
                           src={service.icon}
                           alt={service.title}
-                          className="w-10 h-10 object-contain pointer-events-none"
+                          className="object-contain pointer-events-none"
+                          width={40}
+                          height={40}
                           draggable="false"
                         />
                       </div>
