@@ -17,9 +17,7 @@ const platforms = [
       "PDF Export",
       "Smart Suggestions",
     ],
-    videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-    poster:
-      "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=2070&auto=format&fit=crop",
+    videoUrl: "/pocv.mp4",
     description:
       "Maximize candidate success with AI-driven ATS optimization and smart rewriting capabilities.",
   },
@@ -33,9 +31,7 @@ const platforms = [
       "CRM Scheduling",
       "Multi-Agent Support",
     ],
-    videoUrl: "https://www.w3schools.com/html/movie.mp4",
-    poster:
-      "https://images.unsplash.com/photo-1611746872915-64382b5c76da?q=80&w=2070&auto=format&fit=crop",
+    videoUrl: "/comingSoon.mp4",
     description:
       "Automate customer support and CRM scheduling directly through the WhatsApp Cloud API.",
   },
@@ -103,14 +99,14 @@ export function PlatformSection() {
         </ScrollReveal>
 
         <ScrollReveal className="max-w-4xl mx-auto" delay={260}>
-          <div className="rounded-2xl border border-zinc-300 bg-gray-200 shadow-2xl shadow-black/20 overflow-hidden p-1.5">
+          <div className="rounded-2xl border border-zinc-300 bg-gray-900 shadow-2xl shadow-black/20 overflow-hidden p-1.5">
             <div className="flex items-center gap-2 px-3 py-1.5">
               <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f57]" />
               <div className="w-2.5 h-2.5 rounded-full bg-[#febc2e]" />
               <div className="w-2.5 h-2.5 rounded-full bg-[#28c840]" />
             </div>
 
-            <div className="relative aspect-video w-full rounded-lg overflow-hidden border border-zinc-300 bg-zinc-950 mt-1">
+            <div className="relative aspect-video w-full rounded-lg overflow-hidden border border-gray-900 bg-gray-900 mt-1">
               <video
                 key={active.id}
                 className="w-full h-full object-cover"
@@ -118,7 +114,6 @@ export function PlatformSection() {
                 muted
                 loop
                 playsInline
-                poster={active.poster}
               >
                 <source src={active.videoUrl} type="video/mp4" />
                 Your browser does not support the video tag.

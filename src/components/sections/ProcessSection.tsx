@@ -1,25 +1,28 @@
-import Link from "next/link";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import Image from "next/image";
 
 const promos = [
-  {
-    id: 1,
-    category: "AI Integration",
-    title: "Generative AI Integration",
-    image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=2070&auto=format&fit=crop",
-  },
-  {
-    id: 2,
-    category: "Web Apps",
-    title: "Modern Web Applications",
-    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop",
-  },
-  {
-    id: 3,
-    category: "Data Systems",
-    title: "Data Processing Systems",
-    image: "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?q=80&w=2069&auto=format&fit=crop",
-  },
+{
+  id: 1,
+  category: "AI Integration",
+  title: "Generative AI Integration",
+  image: "/genAI.png",
+  link: "https://en.wikipedia.org/wiki/Generative_artificial_intelligence",
+},
+{
+  id: 2,
+  category: "Web Apps",
+  title: "Modern Web Applications",
+  image: "/webapp.png",
+  link: "https://en.wikipedia.org/wiki/Web_application",
+},
+{
+  id: 3,
+  category: "Data Systems",
+  title: "Data Processing Systems",
+  image: "/data.png",
+  link: "https://en.wikipedia.org/wiki/Data_processing",
+},
 ];
 
 export function ProcessSection() {
@@ -43,10 +46,11 @@ export function ProcessSection() {
             <ScrollReveal key={promo.id} delay={promo.id * 100}>
               <div className="flex flex-col">
                 <div className="rounded-[28px] overflow-hidden mb-5 aspect-[4/3] bg-zinc-100 relative">
-                  <img
+                  <Image
                     src={promo.image}
                     alt={promo.title}
-                    className="w-full h-full object-cover transition-transform duration-700"
+                    className="object-cover transition-transform duration-700"
+                    fill
                   />
                 </div>
 
@@ -60,12 +64,14 @@ export function ProcessSection() {
                   </h3>
 
                   <div className="mt-auto">
-                    <Link
-                      href="/#contact"
+                    <a
+                      href={promo.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center justify-center px-5 py-2.5 text-sm md:text-[15px] rounded-full bg-brand text-white font-bold cursor-pointer transition-transform hover:bg-brand/90 hover:-translate-y-0.25"
                     >
                       Read More
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>

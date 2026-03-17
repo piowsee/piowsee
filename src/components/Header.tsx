@@ -85,7 +85,7 @@ export function Header() {
             alt="piowsee logo"
             width={32}
             height={32}
-            className="ml-3 h-8 w-8"
+            className="lg:ml-2 h-8 w-8"
           />
 
           <span
