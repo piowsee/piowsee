@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { cn } from "@/lib/utils";
 
 type FormData = {
   name: string;
@@ -273,7 +274,7 @@ export function ContactSection() {
                   id="name"
                   type="text"
                   placeholder="John Doe"
-                  className={`w-full bg-zinc-50 border px-4 py-6 text-zinc-900 placeholder:text-zinc-400 transition-all font-medium rounded-lg ${inputBorder("name")}`}
+                  className={cn("w-full bg-zinc-50 border px-4 py-6 text-zinc-900 placeholder:text-zinc-400 transition-all font-medium rounded-lg", inputBorder("name"))}
                   value={formData.name}
                   onChange={(e) => handleChange("name", e.target.value)}
                   onBlur={() => handleBlur("name")}
@@ -294,7 +295,7 @@ export function ContactSection() {
                   id="email"
                   type="email"
                   placeholder="you@email.com"
-                  className={`w-full bg-zinc-50 border px-4 py-6 text-zinc-900 placeholder:text-zinc-400 transition-all font-medium rounded-lg ${inputBorder("email")}`}
+                  className={cn("w-full bg-zinc-50 border px-4 py-6 text-zinc-900 placeholder:text-zinc-400 transition-all font-medium rounded-lg", inputBorder("email"))}
                   value={formData.email}
                   onChange={(e) => handleChange("email", e.target.value)}
                   onBlur={() => handleBlur("email")}
@@ -318,7 +319,7 @@ export function ContactSection() {
                   id="whatsapp"
                   type="tel"
                   placeholder="e.g. 6281234567890"
-                  className={`w-full bg-zinc-50 border px-4 py-6 text-zinc-900 placeholder:text-zinc-400 transition-all font-medium rounded-lg ${inputBorder("whatsapp")}`}
+                  className={cn("w-full bg-zinc-50 border px-4 py-6 text-zinc-900 placeholder:text-zinc-400 transition-all font-medium rounded-lg", inputBorder("whatsapp"))}
                   value={formData.whatsapp}
                   onChange={(e) => handleChange("whatsapp", e.target.value)}
                   onBlur={() => handleBlur("whatsapp")}
@@ -341,11 +342,12 @@ export function ContactSection() {
                 <textarea
                   id="message"
                   placeholder="Tell us about your project requirements..."
-                  className={`w-full min-h-[120px] bg-zinc-50 border px-4 py-3 text-zinc-900 placeholder:text-zinc-400 outline-none focus:ring-2 transition-all font-medium rounded-lg resize-none text-sm ${
+                  className={cn(
+                    "w-full min-h-[120px] bg-zinc-50 border px-4 py-3 text-zinc-900 placeholder:text-zinc-400 outline-none focus:ring-2 transition-all font-medium rounded-lg resize-none text-sm",
                     errors.message && touched.message
                       ? "border-red-400 focus:ring-red-200"
                       : "border-zinc-200 focus:ring-brand/20 focus:border-brand"
-                  }`}
+                  )}
                   value={formData.message}
                   onChange={(e) => handleChange("message", e.target.value)}
                   onBlur={() => handleBlur("message")}
@@ -361,7 +363,7 @@ export function ContactSection() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full text-white rounded-lg py-6 text-base font-bold shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer disabled:cursor-not-allowed ${buttonClass[currentState]}`}
+                className={cn("w-full text-white rounded-lg py-6 text-base font-bold shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer disabled:cursor-not-allowed", buttonClass[currentState])}
               >
                 {buttonContent[currentState]}
               </Button>

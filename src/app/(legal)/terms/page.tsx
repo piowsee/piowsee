@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { cn } from "@/lib/utils";
 
 const sections = [
   { id: "acceptance", label: "Acceptance of Terms" },
@@ -87,11 +88,12 @@ export default function TermsOfService() {
                   <li key={section.id}>
                     <a
                       href={`#${section.id}`}
-                      className={`transition ${
+                      className={cn(
+                        "transition",
                         isActive
                           ? "text-brand"
                           : "text-zinc-500 hover:text-brand"
-                      }`}
+                      )}
                     >
                       {section.label}
                     </a>

@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import { useEffect, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 
 type ScrollRevealProps = {
   children: ReactNode;
@@ -22,6 +23,12 @@ export function ScrollReveal({
   useEffect(() => {
     const element = ref.current;
     if (!element) return;
+
+    const rect = element.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom >= 0) {
+      setIsVisible(true);
+      return;
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -44,9 +51,11 @@ export function ScrollReveal({
   return (
     <div
       ref={ref}
-      className={`${className} transition-all duration-700 ease-out will-change-transform ${
+      className={cn(
+        className,
+        "transition-all duration-700 ease-out will-change-transform",
         isVisible ? "translate-y-0 opacity-100" : "opacity-0"
-      }`}
+      )}
       style={{
         transform: isVisible ? "translateY(0px)" : `translateY(${distance}px)`,
         transitionDelay: `${delay}ms`,

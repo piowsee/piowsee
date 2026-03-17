@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const navLinks = [
   { name: "Home", href: "/#home" },
@@ -38,6 +39,8 @@ export function Header() {
       setIsScrolled(window.scrollY > 10);
     };
 
+    handleScroll(); // agar saat refresh di tengah halaman tetap floating
+
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
@@ -66,28 +69,30 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={cn(
+        "fixed left-1/2 z-50 w-[calc(100%-2rem)] max-w-7xl -translate-x-1/2 rounded-full transition-all duration-300 ease-out",
         isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm py-4"
-          : "bg-transparent py-5"
-      }`}
+          ? "top-4 bg-white/80 backdrop-blur-xl shadow-lg py-3"
+          : "top-0 bg-transparent backdrop-blur-0 shadow-none py-5"
+      )}
     >
       {/* Header container */}
-      <div className="mx-auto w-full max-w-[1400px] px-6 md:px-10 lg:px-16 flex items-center justify-between">
+      <div className="mx-auto w-full max-w-full px-6 md:px-10 lg:px-4 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center cursor-pointer">
           <Image
-            src="/piowsee-logo.svg"
+            src="/logo-piowsee.webp"
             alt="piowsee logo"
             width={32}
             height={32}
-            className="h-8 w-8"
+            className="ml-3 h-8 w-8"
           />
 
           <span
-            className={`ml-2 font-bold text-xl tracking-tighter ${
+            className={cn(
+              "ml-3 font-bold text-xl tracking-tighter",
               isScrolled ? "text-black" : "text-white"
-            }`}
+            )}
           >
             piowsee
           </span>
@@ -99,11 +104,12 @@ export function Header() {
             <Link
               key={link.name}
               href={link.href}
-              className={`cursor-pointer text-[15px] font-medium transition-colors ${
+              className={cn(
+                "cursor-pointer text-[15px] font-medium transition-colors",
                 isScrolled
                   ? "text-gray-900 hover:text-brand"
                   : "text-white hover:text-white/85"
-              }`}
+              )}
             >
               {link.name}
             </Link>
@@ -118,11 +124,12 @@ export function Header() {
                 .getElementById("contact")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
-            className={`cursor-pointer rounded-full px-5 py-4 font-bold border-2 text-[15px] transition-all ${
+            className={cn(
+              "cursor-pointer rounded-full px-5 py-4 font-bold border-2 text-[15px] transition-all",
               isScrolled
-                ? "border-brand text-brand bg-transparent hover:text-brand"
+                ? "border-brand text-brand bg-brand text-white hover:bg-brand/90 hover:text-white"
                 : "border-white text-black bg-white"
-            }`}
+            )}
             variant="outline"
           >
             Discuss Your Project
@@ -135,9 +142,12 @@ export function Header() {
           variant="ghost"
           size="icon"
           onClick={() => setMenuOpen(!menuOpen)}
-          className={`lg:hidden cursor-pointer ${
-            isScrolled ? "text-black" : "text-white"
-          }`}
+          className={cn(
+            "lg:hidden cursor-pointer",
+            isScrolled
+              ? "text-black"
+              : "text-white"
+          )}
         >
           <svg
             width="26"
@@ -163,21 +173,24 @@ export function Header() {
         </Button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu — floats below the header pill */}
       <div
         ref={menuRef}
-        className={`lg:hidden transition-all duration-300 overflow-hidden ${
-          menuOpen ? "max-h-[500px]" : "max-h-0"
-        }`}
+        className={cn(
+          "lg:hidden absolute top-full left-0 right-0 mt-3 transition-all duration-300 ease-out",
+          menuOpen
+            ? "opacity-100 pointer-events-auto translate-y-0"
+            : "opacity-0 pointer-events-none -translate-y-2"
+        )}
       >
-        <div className="w-full mt-4 bg-white border-t border-gray-200">
-          <div className="px-6 py-8 flex flex-col gap-7 items-center text-center">
+        <div className="bg-white/95 rounded-2xl shadow-xl border border-zinc-100 overflow-hidden">
+          <div className="px-6 py-8 flex flex-col gap-6 items-center text-center">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={(e) => handleMobileNavClick(e, link.href)}
-                className="text-gray-900 text-[17px] font-medium"
+                className="text-gray-900 text-[17px] font-medium hover:text-brand transition-colors"
               >
                 {link.name}
               </Link>
@@ -185,7 +198,7 @@ export function Header() {
 
             <Button
               onClick={(e) => handleMobileNavClick(e, "/#contact")}
-              className="rounded-full bg-brand text-white font-bold w-full max-w-[260px] cursor-pointer"
+              className="rounded-full bg-brand text-white font-bold w-full max-w-65 cursor-pointer"
             >
               Discuss Your Project
             </Button>

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Check } from "lucide-react";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 const platforms = [
   {
@@ -68,11 +69,12 @@ export function PlatformSection() {
               key={platform.id}
               onClick={() => setActiveTab(index)}
               variant="outline"
-              className={`cursor-pointer relative rounded-full h-auto px-5 py-2.5 text-[13px] md:text-sm font-bold transition-all duration-300 border ${
+              className={cn(
+                "cursor-pointer relative rounded-full h-auto px-5 py-2.5 text-[13px] md:text-sm font-bold transition-all duration-300 border",
                 index === activeTab
                   ? "border-zinc-900 text-black bg-white shadow-sm"
                   : "border-zinc-300 text-zinc-500 hover:border-zinc-400 hover:text-zinc-800 bg-transparent"
-              }`}
+              )}
             >
               {platform.label}
 
