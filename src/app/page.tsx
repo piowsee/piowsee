@@ -16,7 +16,7 @@ export default function Home() {
       <ServicesSection />
       <PlatformSection />
       <ProcessSection />
-      <CustomerSection />
+      {/* <CustomerSection /> */}
       <FAQSection />
       <ContactSection />
       <Footer />
